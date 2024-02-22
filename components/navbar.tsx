@@ -33,7 +33,7 @@ const Box: React.FC<BoxProps> = ({ id, content, activeItemId, updateActiveItemId
 
   const scaleStyle: React.CSSProperties = {
     transform: `scale(${scaleValue})`,
-    color: activeItemId === id ? "blue" : "gray",
+    color: activeItemId === id ? "#327cc6" : "#9c9c9c",
   };
 
   return (
@@ -42,7 +42,7 @@ const Box: React.FC<BoxProps> = ({ id, content, activeItemId, updateActiveItemId
       style={scaleStyle}
       className="flex flex-1 justify-center items-center"
     >
-      <div className="flex justify-center items-center w-40 h-5vh">
+      <div className="flex justify-center items-center w-40 h-5vh font-semibold">
         {content}
       </div>
     </div>
