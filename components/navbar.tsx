@@ -48,9 +48,9 @@ const Box: React.FC<BoxProps> = ({
 			style={scaleStyle}
 			className="flex flex-1 justify-center items-center"
 		>
-			<div className="flex justify-center items-center w-40 h-5vh font-semibold">
+			<div className="flex flex-col justify-center items-center w-40 h-5vh font-semibold">
 				{id === 1 ? <MessageCircleMore/> : <ClipboardPen/>}
-				{content}
+				<div className="text-xs ">{content}</div>
 			</div>
 		</div>
 	);
@@ -69,8 +69,8 @@ const Navbar: React.FC = () => {
 	};
 
 	return (
-		<div className="w-full h-8vh fixed bottom-0 flex flex-col">
-			<div className="w-full h-[0.1vh] bg-gray-500"></div>
+		<div className="w-full h-[8vh] fixed bottom-0 flex flex-col">
+			<div className="w-full h-[0.1vh] bg-gray-700"></div>
 			<div className="w-full h-[7.9vh] flex">
 				{navItems.map((item) => (
 					<Box
