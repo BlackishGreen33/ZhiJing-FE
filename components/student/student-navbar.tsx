@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { MessageCircleMore, ClipboardPen } from "lucide-react";
+import Link from "next/link";
 
 type BoxProps = {
 	id: number;
@@ -43,20 +44,22 @@ const Box: React.FC<BoxProps> = ({
 	};
 
 	return (
-		<div
-			onClick={handleClick}
-			style={scaleStyle}
-			className="flex flex-1 justify-center items-center"
-		>
-			<div className="flex flex-col justify-center items-center w-40 h-5vh font-semibold">
-				{id === 1 ? <MessageCircleMore/> : <ClipboardPen/>}
-				<div className="text-xs ">{content}</div>
+		<Link href={id === 1 ? "/" : "/analyze"} className="flex flex-1">
+			<div
+				onClick={handleClick}
+				style={scaleStyle}
+				className="flex flex-1 justify-center items-center"
+			>
+				<div className="flex flex-col justify-center items-center w-40 h-5vh font-semibold">
+					{id === 1 ? <MessageCircleMore /> : <ClipboardPen />}
+					<div className="text-xs ">{content}</div>
+				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
 
-const Navbar: React.FC = () => {
+const SudentNavbar: React.FC = () => {
 	const navItems = [
 		{ id: 1, content: "对话" },
 		{ id: 2, content: "学情分析" },
@@ -86,4 +89,4 @@ const Navbar: React.FC = () => {
 	);
 };
 
-export default Navbar;
+export default SudentNavbar;

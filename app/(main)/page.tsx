@@ -1,5 +1,6 @@
 import { ModeToggle } from "@/components/mode-toggle";
-import Navbar from "@/components/navbar";
+import SudentNavbar from "@/components/student/student-navbar";
+import Link from "next/link";
 
 export default function Home() {
 	return (
@@ -9,20 +10,32 @@ export default function Home() {
 				<p className="text-gray-400">选择咨询科目</p>
 			</div>
 			<div className="w-full h-[25vh] grid grid-cols-2 grid-rows-2 gap-x-[10px] gap-y-[10px] px-[20px] py-[10px] relative top-[11vh]">
-				<div className="bg-blue-500 rounded-lg flex justify-center items-center">
+				<Link
+					href="/dialogue/chat"
+					className="bg-blue-500 rounded-lg flex justify-center items-center"
+				>
 					<div className="font-bold">数学</div>
-				</div>
-				<div className="bg-red-500 rounded-lg flex justify-center items-center">
+				</Link>
+				<Link
+					href="/dialogue/chat"
+					className="bg-red-500 rounded-lg flex justify-center items-center"
+				>
 					<div className="font-bold">语文</div>
-				</div>
-				<div className="bg-yellow-500 rounded-lg flex justify-center items-center">
+				</Link>
+				<Link
+					href="/dialogue/chat"
+					className="bg-yellow-500 rounded-lg flex justify-center items-center"
+				>
 					<div className="font-bold">历史</div>
-				</div>
-				<div className="bg-orange-500 rounded-lg flex justify-center items-center">
+				</Link>
+				<Link
+					href="/dialogue/chat"
+					className="bg-orange-500 rounded-lg flex justify-center items-center"
+				>
 					<div className="font-bold">物理</div>
-				</div>
+				</Link>
 			</div>
-			<Navbar />
+			<SudentNavbar />
 		</main>
 	);
 }
