@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle";
 import SudentNavbar from "@/components/student/student-navbar";
-import Link from "next/link";
 
 export default function Home() {
 	return (

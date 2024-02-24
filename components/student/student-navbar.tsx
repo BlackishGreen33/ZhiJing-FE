@@ -52,7 +52,7 @@ const Box: React.FC<BoxProps> = ({
 			>
 				<div className="flex flex-col justify-center items-center w-40 h-5vh font-semibold">
 					{id === 1 ? <MessageCircleMore /> : <ClipboardPen />}
-					<div className="text-xs ">{content}</div>
+					<div className="text-xs">{content}</div>
 				</div>
 			</div>
 		</Link>
