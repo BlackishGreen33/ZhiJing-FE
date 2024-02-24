@@ -1,6 +1,10 @@
-import React from "react";
+import SudentNavbar from "@/components/student/student-navbar";
 
 const page = () => {
-	return <div>this is analyze page</div>;
+	return (
+		<main>
+			<SudentNavbar activeID={2}/>
+		</main>
+	);
 };
 export default page;

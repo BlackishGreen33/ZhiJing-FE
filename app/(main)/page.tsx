@@ -35,7 +35,7 @@ export default function Home() {
 					<div className="font-bold">物理</div>
 				</Link>
 			</div>
-			<SudentNavbar />
+			<SudentNavbar activeID={1}/>
 		</main>
 	);
 }

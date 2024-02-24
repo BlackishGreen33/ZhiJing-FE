@@ -11,6 +11,10 @@ type BoxProps = {
 	updateActiveItemId: (id: number) => void;
 };
 
+type SudentNavbarProps = {
+	activeID: number;
+};
+
 const Box: React.FC<BoxProps> = ({
 	id,
 	content,
@@ -59,13 +63,13 @@ const Box: React.FC<BoxProps> = ({
 	);
 };
 
-const SudentNavbar: React.FC = () => {
+const SudentNavbar: React.FC<SudentNavbarProps> = ({ activeID }) => {
 	const navItems = [
 		{ id: 1, content: "对话" },
 		{ id: 2, content: "学情分析" },
 	];
 
-	const [activeItemId, setActiveItemId] = useState(1);
+	const [activeItemId, setActiveItemId] = useState(activeID);
 
 	const updateActiveItemId = (id: number) => {
 		setActiveItemId(id);
