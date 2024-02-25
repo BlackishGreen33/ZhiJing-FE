@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronLeft, UserRound } from "lucide-react";
+import SudentNavbar from "@/components/student/student-navbar";
 import { Button } from "@/components/ui/button";
 import {
 	Dialog,
@@ -18,8 +19,9 @@ const page = () => {
 		<main>
 			<Header />
 			<div className="relative top-[10vh] flex justify-center">
-				<p className="text-gray-400">选择咨询科目</p>
+				<p className="text-gray-400">哈哈，屁眼</p>
 			</div>
+			<SudentNavbar activeID={1}/>
 		</main>
 	);
 };
