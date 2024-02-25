@@ -14,6 +14,12 @@ dependencies:
   '@capacitor/core':
     specifier: ^5.7.0
     version: 5.7.0
+  '@capacitor/preferences':
+    specifier: ^5.0.7
+    version: 5.0.7(@capacitor/core@5.7.0)
+  '@capacitor/storage':
+    specifier: ^1.2.5
+    version: 1.2.5(@capacitor/core@5.7.0)
   '@radix-ui/react-dialog':
     specifier: ^1.0.5
     version: 1.0.5(@types/react-dom@18.2.19)(@types/react@18.2.57)(react-dom@18.2.0)(react@18.2.0)
@@ -138,6 +144,23 @@ packages:
     resolution: {integrity: sha512-wa9Fao+Axa1t2ZERMyQD9r0xyfglQyC4DHQKintzKaIqcRuVe9J31TmfD3IxROYi9LGpY4X8cq4m4bjb0W94Qg==}
     dependencies:
       tslib: 2.6.2
+    dev: false
+
+  /@capacitor/preferences@5.0.7(@capacitor/core@5.7.0):
+    resolution: {integrity: sha512-JvfGP1m8nITWEFdBpKR9HXNeBjLKwO0q1pry7Z5lYrYmCrbyRBLWzaGZGll8py4KmGWL3F5+PZvhrpT4gPoeAQ==}
+    peerDependencies:
+      '@capacitor/core': ^5.0.0
+    dependencies:
+      '@capacitor/core': 5.7.0
+    dev: false
+
+  /@capacitor/storage@1.2.5(@capacitor/core@5.7.0):
+    resolution: {integrity: sha512-pWhnw4U7wN/zFV4lA4BLMypSufTktCbk548Yk4whSb0KAq3R0mLfSubRIHkGdcPqQWCsM6g/zUuszurhz6ncWQ==}
+    deprecated: package has been renamed to @capacitor/preferences
+    peerDependencies:
+      '@capacitor/core': ^3.0.0
+    dependencies:
+      '@capacitor/core': 5.7.0
     dev: false
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.56.0):

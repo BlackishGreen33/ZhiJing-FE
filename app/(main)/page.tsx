@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import useTokenCheck from "@/hooks/use-token-checked";
 import { ModeToggle } from "@/components/mode-toggle";
 import SudentNavbar from "@/components/student/student-navbar";
 
 export default function Home() {
+	useTokenCheck();
+
 	return (
 		<main>
 			<Header />
@@ -35,7 +40,7 @@ export default function Home() {
 					<div className="font-bold">物理</div>
 				</Link>
 			</div>
-			<SudentNavbar activeID={1}/>
+			<SudentNavbar activeID={1} />
 		</main>
 	);
 }
