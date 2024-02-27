@@ -6,7 +6,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import SudentNavbar from "@/components/student/student-navbar";
 
 export default function Home() {
-	useTokenCheck();
+	// useTokenCheck();
 
 	return (
 		<main>
