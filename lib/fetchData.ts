@@ -1,26 +1,25 @@
 import axios from "axios";
+import { CapacitorHttp } from '@capacitor/core';
 
 const preurl = "https://zhijing.bigdust.space/api/v1";
 // const token = localStorage.getItem("token");
 
-export async function postData(url = "", data = {}, method = "POST") {
+export async function postData(url = "", data = {}) {
 	try {
 		// if (!token) {
 		// 	return;
 		// }
 
-		const response = await axios({
-			method: method,
+		const response = await CapacitorHttp.post({
 			url: preurl + url,
 			headers: {
 				"Content-Type": "application/json;charset=utf-8",
 				// "Authorization": token,
-				// withCredentials: true,
 			},
 			data: data,
 		});
 
-		return response.data;
+		return response.data.data;
 	} catch (error) {
 		console.error(error);
 	}
@@ -38,9 +37,6 @@ export async function getJson(url = "") {
 			headers: {
 				"Content-Type": "application/json;charset=utf-8",
 				// "Authorization": token,
-				"Access-Control-Allow-Origin": "http://localhost:3000",
-				"Access-Control-Allow-Methods": "GET",
-				"Access-Control-Allow-Headers": "Content-Type, Authorization",
 			},
 		});
 
@@ -62,9 +58,6 @@ export async function putData(url = "", data = {}, method = "PUT") {
 			headers: {
 				"Content-Type": "application/json;charset=utf-8",
 				// "Authorization": token,
-				"Access-Control-Allow-Origin": "http://localhost:3000",
-				"Access-Control-Allow-Methods": "PUT",
-				"Access-Control-Allow-Headers": "Content-Type, Authorization",
 			},
 			data: data,
 		});

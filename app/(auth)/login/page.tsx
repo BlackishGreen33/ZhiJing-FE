@@ -1,11 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { Preferences } from "@capacitor/preferences";
+import { Toast } from "@capacitor/toast";
+
+import { Mail, Eye, EyeOff } from "lucide-react";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Mail, Eye, EyeOff } from "lucide-react";
+
 import { postData } from "@/lib/fetchData";
 
 const page = () => {
@@ -13,14 +19,39 @@ const page = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
+	const router = useRouter();
+
 	const handleLogin = () => {
 		const user = {
 			email: email,
 			password: password,
 		};
-		console.log(user);
-		const res = postData("/auth/login", user);
-		console.log(res);
+
+		if (!email) {
+			Toast.show({
+				text: "邮箱不能为空！",
+				duration: "short",
+				position: "top",
+			});
+			if (!password) {
+				Toast.show({
+					text: "密码不能为空！",
+					duration: "short",
+					position: "top",
+				});
+				return;
+			}
+			return;
+		}
+
+		postData("/auth/login", user).then((res) => {
+			const token = res.token;
+			Preferences.set({
+				key: "token",
+				value: token,
+			});
+			router.push("/");
+		});
 	};
 
 	return (
@@ -94,7 +125,7 @@ const page = () => {
 			</Button>
 			<p className="absolute top-[93vh] text-sm">想尝试一下我们的服务？</p>
 			<Button className="absolute top-[95vh]" variant="link" size="default">
-				<p className="text-sm text-[#327cc6] decoration-dashed">是的</p>
+				<p className="text-sm text-[#327cc6] decoration-dashed">好呀！</p>
 			</Button>
 		</div>
 	);
