@@ -6,9 +6,22 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Mail, Eye, EyeOff } from "lucide-react";
+import { postData } from "@/lib/fetchData";
 
 const page = () => {
 	const [showPass, setShowPass] = useState(false);
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const handleLogin = () => {
+		const user = {
+			email: email,
+			password: password,
+		};
+		console.log(user);
+		const res = postData("/auth/login", user);
+		console.log(res);
+	};
 
 	return (
 		<div className="flex flex-col items-center relative">
@@ -34,6 +47,10 @@ const page = () => {
 							id="email"
 							placeholder="请输入电子邮箱"
 							className="bg-transparent w-[85%] h-[5.3vh] outline-none border-none"
+							value={email}
+							onChange={(e) => {
+								setEmail(e.target.value);
+							}}
 						/>
 						<Mail className="bg-transparent w-[15%]" />
 					</div>
@@ -48,6 +65,10 @@ const page = () => {
 							id="password"
 							placeholder="请输入密码"
 							className="bg-transparent w-[85%] h-[5.3vh] outline-none border-none"
+							value={password}
+							onChange={(e) => {
+								setPassword(e.target.value);
+							}}
 						/>
 						<Button
 							className="bg-transparent border-0 w-[15%]"
@@ -64,6 +85,7 @@ const page = () => {
 				className="absolute top-[67vh] w-[50%] h-[6vh] rounded-[5vh]"
 				variant="default"
 				size="default"
+				onClick={handleLogin}
 			>
 				<p className="text-base">登录</p>
 			</Button>
