@@ -21,26 +21,22 @@ const page = () => {
 
 	const router = useRouter();
 
-	const handleLogin = () => {
-		const user = {
-			email: email,
-			password: password,
-		};
+	const showToast = (text: string) => {
+		Toast.show({
+			text,
+			duration: "short",
+			position: "top",
+		});
+	};
 
+	const handleLogin = () => {
 		if (!email) {
-			Toast.show({
-				text: "邮箱不能为空！",
-				duration: "short",
-				position: "top",
-			});
-			if (!password) {
-				Toast.show({
-					text: "密码不能为空！",
-					duration: "short",
-					position: "top",
-				});
-				return;
-			}
+			showToast("邮箱不能为空！");
+			return;
+		}
+
+		if (!password) {
+			showToast("密码不能为空！");
 			return;
 		}
 
@@ -49,13 +45,14 @@ const page = () => {
 		const isEmail = testEmail.test(email);
 
 		if (!isEmail) {
-			Toast.show({
-				text: "请输入正确的邮箱格式",
-				duration: "short",
-				position: "top",
-			});
+			showToast("请输入正确的邮箱格式");
 			return;
 		}
+
+		const user = {
+			email: email,
+			password: password,
+		};
 
 		authPost("/auth/login", user).then((res) => {
 			const token = res.token;

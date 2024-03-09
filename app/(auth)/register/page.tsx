@@ -35,29 +35,22 @@ const page = () => {
 
 	const router = useRouter();
 
-	const handleRegister = () => {
-		const user = {
-			email: email,
-			password: password,
-			code: code,
-			username: username,
-			role: role,
-		};
+	const showToast = (text: string) => {
+		Toast.show({
+			text,
+			duration: "short",
+			position: "top",
+		});
+	};
 
+	const handleRegister = () => {
 		if (!email) {
-			Toast.show({
-				text: "邮箱不能为空！",
-				duration: "short",
-				position: "top",
-			});
-			if (!password) {
-				Toast.show({
-					text: "密码不能为空！",
-					duration: "short",
-					position: "top",
-				});
-				return;
-			}
+			showToast("邮箱不能为空！");
+			return;
+		}
+
+		if (!password) {
+			showToast("密码不能为空！");
 			return;
 		}
 
@@ -66,21 +59,29 @@ const page = () => {
 		const isEmail = testEmail.test(email);
 
 		if (!isEmail) {
-			Toast.show({
-				text: "请输入正确的邮箱格式",
-				duration: "short",
-				position: "top",
-			});
+			showToast("请输入正确的邮箱格式");
 			return;
 		}
+
+		const user = {
+			email: email,
+			password: password,
+			code: code,
+			username: username,
+			role: role,
+		};
 
 		authPost("/auth/register", user).then(() => {
 			router.push("/login");
 		});
 	};
 
-	const hadleVerify = () => {
-		authGet("/auth/email_code", email);
+	const hadleVerify = async () => {
+		try {
+			await authGet("/auth/email_code", email);
+		} catch (error) {
+			console.error(error);
+		}
 	};
 
 	return (
