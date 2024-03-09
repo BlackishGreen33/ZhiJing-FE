@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Preferences } from "@capacitor/preferences";
-// import { Toast } from "@capacitor/toast";
+import { Toast } from "@capacitor/toast";
 
 import { User, Mail, Eye, EyeOff } from "lucide-react";
 
@@ -59,26 +58,39 @@ const page = () => {
 			role: role,
 		};
 
-		// if (!email) {
-		// 	Toast.show({
-		// 		text: "邮箱不能为空！",
-		// 		duration: "short",
-		// 		position: "top",
-		// 	});
-		// 	if (!password) {
-		// 		Toast.show({
-		// 			text: "密码不能为空！",
-		// 			duration: "short",
-		// 			position: "top",
-		// 		});
-		// 		return;
-		// 	}
-		// 	return;
-		// }
+		if (!email) {
+			Toast.show({
+				text: "邮箱不能为空！",
+				duration: "short",
+				position: "top",
+			});
+			if (!password) {
+				Toast.show({
+					text: "密码不能为空！",
+					duration: "short",
+					position: "top",
+				});
+				return;
+			}
+			return;
+		}
 
-		// postData("/api/v1/auth/register", user).then((res) => {
-		// 	router.push("/login");
-		// });
+		const testEmail =
+			/^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/;
+		const isEmail = testEmail.test(email);
+
+		if (!isEmail) {
+			Toast.show({
+				text: "请输入正确的邮箱格式",
+				duration: "short",
+				position: "top",
+			});
+			return;
+		}
+
+		postData("/api/v1/auth/register", user).then((res) => {
+			router.push("/login");
+		});
 	};
 
 	return (
@@ -157,7 +169,11 @@ const page = () => {
 							render={({ slots }) => (
 								<InputOTPGroup>
 									{slots.map((slot, index) => (
-										<InputOTPSlot key={index} {...slot} className="w-8 h-[5.3vh]" />
+										<InputOTPSlot
+											key={index}
+											{...slot}
+											className="w-8 h-[5.3vh]"
+										/>
 									))}{" "}
 								</InputOTPGroup>
 							)}
@@ -182,7 +198,11 @@ const page = () => {
 						用户类型
 					</Label>
 					<div className="bg-gray-800 flex gap-1 justify-center items-center rounded h-[5.3vh]">
-						<Select onValueChange={(e)=>{setRole(e)}}>
+						<Select
+							onValueChange={(e) => {
+								setRole(e);
+							}}
+						>
 							<SelectTrigger className="bg-transparent w-full h-[5.3vh]">
 								<SelectValue placeholder="请选择用户类型" />
 							</SelectTrigger>

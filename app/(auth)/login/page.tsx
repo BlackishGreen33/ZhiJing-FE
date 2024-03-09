@@ -44,6 +44,19 @@ const page = () => {
 			return;
 		}
 
+		const testEmail =
+			/^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/;
+		const isEmail = testEmail.test(email);
+
+		if (!isEmail) {
+			Toast.show({
+				text: "请输入正确的邮箱格式",
+				duration: "short",
+				position: "top",
+			});
+			return;
+		}
+
 		authPost("/auth/login", user).then((res) => {
 			const token = res.token;
 			Preferences.set({
