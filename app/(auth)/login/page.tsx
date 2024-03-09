@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 
-import { postData } from "@/lib/fetchData";
+import { authPost } from "@/lib/fetchData";
 
 const page = () => {
 	const [showPass, setShowPass] = useState(false);
@@ -44,7 +44,7 @@ const page = () => {
 			return;
 		}
 
-		postData("/auth/login", user).then((res) => {
+		authPost("/auth/login", user).then((res) => {
 			const token = res.token;
 			Preferences.set({
 				key: "token",
@@ -124,7 +124,14 @@ const page = () => {
 				<p className="text-sm">人家忘记密码了 耶嘿</p>
 			</Button>
 			<p className="absolute top-[93vh] text-sm">想尝试一下我们的服务？</p>
-			<Button className="absolute top-[95vh]" variant="link" size="default">
+			<Button
+				className="absolute top-[95vh]"
+				variant="link"
+				size="default"
+				onClick={() => {
+					router.push("/register");
+				}}
+			>
 				<p className="text-sm text-[#327cc6] decoration-dashed">好呀！</p>
 			</Button>
 		</div>
