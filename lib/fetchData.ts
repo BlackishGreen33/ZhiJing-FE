@@ -84,12 +84,15 @@ export async function authPost(url = "", data = {}) {
 	}
 }
 
-export async function authGet(url = "") {
+export async function authGet(url = "", email: string) {
 	try {
 		const response = await CapacitorHttp.get({
 			url: preurl + url,
 			headers: {
 				"Content-Type": "application/json;charset=utf-8",
+			},
+			params: {
+				email: email,
 			},
 		});
 

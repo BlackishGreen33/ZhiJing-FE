@@ -23,21 +23,7 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 
-import { authGet } from "@/lib/fetchData";
-
-<InputOTP
-	maxLength={6}
-	pattern={REGEXP_ONLY_DIGITS_AND_CHARS}
-	render={({ slots }) => (
-		<InputOTPGroup>
-			{slots.map((slot, index) => (
-				<InputOTPSlot key={index} {...slot} />
-			))}{" "}
-		</InputOTPGroup>
-	)}
-/>;
-
-import { postData } from "@/lib/fetchData";
+import { authPost, authGet } from "@/lib/fetchData";
 
 const page = () => {
 	const [showPass, setShowPass] = useState(false);
@@ -88,9 +74,13 @@ const page = () => {
 			return;
 		}
 
-		postData("/api/v1/auth/register", user).then((res) => {
+		authPost("/auth/register", user).then(() => {
 			router.push("/login");
 		});
+	};
+
+	const hadleVerify = () => {
+		authGet("/auth/email_code", email);
 	};
 
 	return (
@@ -187,7 +177,7 @@ const page = () => {
 							className="bg-transparent border-0 w-[35%] px-0"
 							variant={null}
 							size="default"
-							onClick={() => {}}
+							onClick={hadleVerify}
 						>
 							发送验证信
 						</Button>
