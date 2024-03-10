@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import {
 	InputOTP,
 	InputOTPGroup,
+	InputOTPSeparator,
 	InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
@@ -153,7 +154,7 @@ const page = () => {
 					<Label htmlFor="code" className="text-base">
 						验证码
 					</Label>
-					<div className="bg-gray-800 flex gap-1 justify-center items-center rounded h-[5.3vh]">
+					<div className="bg-transparent flex gap-1 justify-center items-center rounded h-[5.3vh]">
 						<InputOTP
 							maxLength={6}
 							pattern={REGEXP_ONLY_DIGITS_AND_CHARS}
@@ -163,7 +164,7 @@ const page = () => {
 										<InputOTPSlot
 											key={index}
 											{...slot}
-											className="w-8 h-[5.3vh]"
+											className="w-8 h-[5.3vh] border-gray-600"
 										/>
 									))}{" "}
 								</InputOTPGroup>
@@ -175,7 +176,7 @@ const page = () => {
 							}}
 						/>
 						<Button
-							className="bg-transparent border-0 w-[35%] px-0"
+							className="bg-gray-800 border-0 w-[35%] px-0"
 							variant={null}
 							size="default"
 							onClick={hadleVerify}
