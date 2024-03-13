@@ -2,13 +2,48 @@ import StudentChatHeader from "@/components/student/student-chat-header";
 import SudentNavbar from "@/components/student/student-navbar";
 import StudentChatInput from "@/components/student/student-chat-input";
 import StudentChatFuction from "@/components/student/student-chat-fuction";
+import {
+	UserMessage,
+	ZJMessage,
+} from "@/components/student/student-chat-message";
 
 const page = () => {
+	const messages = [
+		{
+			content: "你是？",
+			role: "你",
+		},
+		{
+			content:
+				"我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你",
+			role: "ZJ",
+		},
+		{
+			content:
+				"我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你",
+			role: "你",
+		},
+		{
+			content:
+				"啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+			role: "ZJ",
+		},
+	];
+
 	return (
 		<main>
 			<StudentChatHeader />
-			<div className="relative top-[10vh] flex justify-center">
-				<p className="text-gray-400">哈哈，屁眼</p>
+			<div className="w-full relative top-[10vh] flex flex-col gap-[2vh] px-[5%]">
+				{messages.map((item, index) =>
+					item.role === "ZJ" ? (
+						<ZJMessage
+							content={item.content}
+							isLatest={index === messages.length - 1}
+						/>
+					) : (
+						<UserMessage content={item.content} />
+					)
+				)}
 			</div>
 			<StudentChatFuction />
 			<StudentChatInput />
