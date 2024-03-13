@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import useTokenCheck from "@/hooks/use-token-checked";
 import { ModeToggle } from "@/components/mode-toggle";
 import SudentNavbar from "@/components/student/student-navbar";
@@ -48,7 +49,13 @@ export default function Home() {
 const Header = () => {
 	return (
 		<header className="fixed w-full h-[10vh]">
-			<span className="w-[5vh] h-[5vh] bg-purple-600 absolute left-[5%] top-[2.5vh]"></span>
+			<Image
+				className="w-[5vh] h-[5vh] absolute left-[4.9%] top-[2.5vh]"
+				src="/icon.png"
+				alt="logo"
+				width={200}
+				height={200}
+			/>
 			<p className="text-sm text-gray-400 absolute left-[17%] top-[2.5vh]">
 				欢迎使用
 			</p>
