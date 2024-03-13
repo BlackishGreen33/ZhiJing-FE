@@ -3,8 +3,8 @@ import SudentNavbar from "@/components/student/student-navbar";
 const page = () => {
 	return (
 		<main>
-			analyze page
-			<SudentNavbar activeID={3}/>
+      solve page
+			<SudentNavbar activeID={2}/>
 		</main>
 	);
 };

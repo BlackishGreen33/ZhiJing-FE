@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MessageCircleMore, ClipboardPen } from "lucide-react";
+import { MessageCircleMore, ClipboardPen, Lightbulb } from "lucide-react";
 import Link from "next/link";
 
 type BoxProps = {
@@ -48,14 +48,23 @@ const Box: React.FC<BoxProps> = ({
 	};
 
 	return (
-		<Link href={id === 1 ? "/" : "/analyze"} className="flex flex-1">
+		<Link
+			href={id === 1 ? "/" : id === 2 ? "/solve" : "/analyze"}
+			className="flex flex-1"
+		>
 			<div
 				onClick={handleClick}
 				style={scaleStyle}
 				className="flex flex-1 justify-center items-center"
 			>
-				<div className="flex flex-col justify-center items-center w-40 h-5vh font-semibold">
-					{id === 1 ? <MessageCircleMore /> : <ClipboardPen />}
+				<div className="flex flex-col justify-center items-center h-5vh font-semibold">
+					{id === 1 ? (
+						<MessageCircleMore />
+					) : id === 2 ? (
+						<Lightbulb />
+					) : (
+						<ClipboardPen />
+					)}
 					<div className="text-xs">{content}</div>
 				</div>
 			</div>
@@ -66,7 +75,8 @@ const Box: React.FC<BoxProps> = ({
 const SudentNavbar: React.FC<SudentNavbarProps> = ({ activeID }) => {
 	const navItems = [
 		{ id: 1, content: "对话" },
-		{ id: 2, content: "学情分析" },
+		{ id: 2, content: "答疑區" },
+		{ id: 3, content: "学情分析" },
 	];
 
 	const [activeItemId, setActiveItemId] = useState(activeID);
