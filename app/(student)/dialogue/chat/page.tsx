@@ -10,20 +10,24 @@ import {
 const page = () => {
 	const messages = [
 		{
+			id: 1,
 			content: "你是？",
 			role: "你",
 		},
 		{
+			id: 2,
 			content:
 				"我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你",
 			role: "ZJ",
 		},
 		{
+			id: 3,
 			content:
 				"我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你",
 			role: "你",
 		},
 		{
+			id: 4,
 			content:
 				"啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
 			role: "ZJ",
@@ -37,11 +41,12 @@ const page = () => {
 				{messages.map((item, index) =>
 					item.role === "ZJ" ? (
 						<ZJMessage
+							key={item.id}
 							content={item.content}
 							isLatest={index === messages.length - 1}
 						/>
 					) : (
-						<UserMessage content={item.content} />
+						<UserMessage key={item.id} content={item.content} />
 					)
 				)}
 			</div>
