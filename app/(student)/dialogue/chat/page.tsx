@@ -1,7 +1,7 @@
 import StudentChatHeader from "@/components/student/student-chat-header";
 import SudentNavbar from "@/components/student/student-navbar";
 import StudentChatInput from "@/components/student/student-chat-input";
-import StudentChatFuction from "@/components/student/student-chat-fuction";
+import StudentChatFuction from "@/components/student/student-chat-function";
 import {
 	UserMessage,
 	ZJMessage,
