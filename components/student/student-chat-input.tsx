@@ -2,7 +2,11 @@ import { FolderPlus, SendHorizonal } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-const StudentChatInput = () => {
+type StudentChatInputProps = {
+	purpose: string;
+};
+
+const StudentChatInput: React.FC<StudentChatInputProps> = ({ purpose }) => {
 	return (
 		<div className="w-full h-[8vh] fixed bottom-[8vh] flex flex-col">
 			<div className="w-full h-[0.1vh] bg-gray-700"></div>
@@ -17,7 +21,11 @@ const StudentChatInput = () => {
 					</Button>
 				</div>
 				<div className="w-[63%] absolute left-[18%]">
-					<Input placeholder="与 知境 机器人对话" />
+					{purpose === "diologue" ? (
+						<Input placeholder="与 知境 机器人对话" />
+					) : (
+						<Input placeholder="与 老师 对话" />
+					)}
 				</div>
 				<div className="absolute right-[5%]">
 					<Button className="border-0" variant="default" size="icon">

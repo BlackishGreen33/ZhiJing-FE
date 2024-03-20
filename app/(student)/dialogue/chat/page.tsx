@@ -11,7 +11,7 @@ const page = () => {
 	const messages = [
 		{
 			id: 1,
-			content: "你是？",
+			content: "123",
 			role: "你",
 		},
 		{
@@ -36,7 +36,7 @@ const page = () => {
 
 	return (
 		<main>
-			<StudentChatHeader />
+			<StudentChatHeader backUrl="/" title="知境" purpose="dialogue"/>
 			<div className="w-full relative top-[10vh] flex flex-col gap-[2vh] px-[5%]">
 				{messages.map((item, index) =>
 					item.role === "ZJ" ? (
@@ -51,7 +51,7 @@ const page = () => {
 				)}
 			</div>
 			<StudentChatFuction />
-			<StudentChatInput />
+			<StudentChatInput purpose="dialogue"/>
 			<SudentNavbar activeID={1} />
 		</main>
 	);
