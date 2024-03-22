@@ -16,7 +16,7 @@ import { Label } from "@/components/ui/label";
 type SubpageHeaderProps = {
 	backUrl: string;
 	title: string;
-	purpose: string;
+	purpose: "dialogue" | "solve" | "none";
 };
 
 const SubpageHeader: React.FC<SubpageHeaderProps> = ({

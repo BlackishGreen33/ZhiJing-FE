@@ -26,25 +26,25 @@ const page = () => {
 			/>
 			<div className="w-full h-[25vh] grid grid-cols-2 grid-rows-2 gap-x-[10px] gap-y-[10px] px-[20px] py-[10px] relative top-[3vh]">
 				<Link
-					href="/analyze/subject"
+					href="/analyze/subject?title=数学"
 					className="bg-blue-500 rounded-lg flex justify-center items-center"
 				>
 					<div className="font-bold">数学</div>
 				</Link>
 				<Link
-					href="/analyze/subject"
+					href="/analyze/subject?title=语文"
 					className="bg-red-500 rounded-lg flex justify-center items-center"
 				>
 					<div className="font-bold">语文</div>
 				</Link>
 				<Link
-					href="/analyze/subject"
+					href="/analyze/subject?title=历史"
 					className="bg-yellow-500 rounded-lg flex justify-center items-center"
 				>
 					<div className="font-bold">历史</div>
 				</Link>
 				<Link
-					href="/analyze/subject"
+					href="/analyze/subject?title=物理"
 					className="bg-orange-500 rounded-lg flex justify-center items-center"
 				>
 					<div className="font-bold">物理</div>
