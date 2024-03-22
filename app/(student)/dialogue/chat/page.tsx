@@ -1,4 +1,4 @@
-import StudentChatHeader from "@/components/student/student-chat-header";
+import SubpageHeader from "@/components/subpage-header";
 import SudentNavbar from "@/components/student/student-navbar";
 import StudentChatInput from "@/components/student/student-chat-input";
 import StudentChatFuction from "@/components/student/student-chat-function";
@@ -36,7 +36,7 @@ const page = () => {
 
 	return (
 		<main>
-			<StudentChatHeader backUrl="/" title="知境" purpose="dialogue"/>
+			<SubpageHeader backUrl="/" title="知境" purpose="dialogue"/>
 			<div className="w-full relative top-[10vh] flex flex-col gap-[2vh] px-[5%]">
 				{messages.map((item, index) =>
 					item.role === "ZJ" ? (

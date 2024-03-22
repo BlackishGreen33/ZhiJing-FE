@@ -13,13 +13,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-type StudentChatHeaderProps = {
+type SubpageHeaderProps = {
 	backUrl: string;
 	title: string;
 	purpose: string;
 };
 
-const StudentChatHeader: React.FC<StudentChatHeaderProps> = ({
+const SubpageHeader: React.FC<SubpageHeaderProps> = ({
 	backUrl,
 	title,
 	purpose,
@@ -91,4 +91,4 @@ const StudentChatHeader: React.FC<StudentChatHeaderProps> = ({
 	);
 };
 
-export default StudentChatHeader;
+export default SubpageHeader;

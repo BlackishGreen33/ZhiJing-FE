@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-import StudentChatHeader from "@/components/student/student-chat-header";
+import SubpageHeader from "@/components/subpage-header";
 import SudentNavbar from "@/components/student/student-navbar";
 import StudentChatInput from "@/components/student/student-chat-input";
 import {
@@ -52,7 +52,7 @@ const page = () => {
 
 	return (
 		<main>
-			<StudentChatHeader backUrl="/solve" title={title} purpose="solve" />
+			<SubpageHeader backUrl="/solve" title={title} purpose="solve" />
 			<div className="w-full h-[72vh] relative top-[10vh] flex flex-col items-center gap-[2vh] overflow-scroll">
 				<div className="w-[90%] bg-neutral-900 p-[4%] flex flex-col gap-[2vh] rounded-xl">
 					<Label htmlFor="message-2">题目：</Label>
