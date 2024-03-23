@@ -18,7 +18,7 @@ const page = () => {
 					(item) =>
 						isSolve === item.isSolve && (
 							<Link
-								href={`/solve/chat/?title=${item.title}`}
+								href={`/student/solve/chat/?title=${item.title}`}
 								className="w-[80%] h-[10vh] bg-neutral-800 rounded-lg flex items-center"
 								key={item.id}
 							>

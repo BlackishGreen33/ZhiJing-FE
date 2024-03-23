@@ -13,12 +13,12 @@ const page = () => {
 
 	return (
 		<main>
-			<SubpageHeader backUrl="/analyze" title="强化巩固" purpose="none" />
+			<SubpageHeader backUrl="/student/analyze" title="强化巩固" purpose="none" />
 			<div className="relative top-[10vh] w-full flex flex-col items-center gap-5">
 				<Image
 					className="absolute top-[5vh] w-[50vh] h-[50vh]"
-					src="/icon.png"
-					alt="logo"
+					src="/enhance.png"
+					alt="enhance"
 					width={200}
 					height={200}
 				/>

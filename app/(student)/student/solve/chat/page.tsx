@@ -52,7 +52,7 @@ const page = () => {
 
 	return (
 		<main>
-			<SubpageHeader backUrl="/solve" title={title} purpose="solve" />
+			<SubpageHeader backUrl="/student/solve" title={title} purpose="solve" />
 			<div className="w-full h-[72vh] relative top-[10vh] flex flex-col items-center gap-[2vh] overflow-scroll">
 				<div className="w-[90%] bg-neutral-900 p-[4%] flex flex-col gap-[2vh] rounded-xl">
 					<Label htmlFor="message-2">题目：</Label>

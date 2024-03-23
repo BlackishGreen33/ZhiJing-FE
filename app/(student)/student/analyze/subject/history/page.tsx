@@ -57,7 +57,7 @@ const page = () => {
 
 	return (
 		<main>
-			<SubpageHeader backUrl="/analyze" title="历史错题" purpose="none" />
+			<SubpageHeader backUrl="/student/analyze" title="历史错题" purpose="none" />
 			<div className="relative top-[10vh] w-full h-[80vh] flex flex-col items-center gap-5 overflow-scroll">
 				<div className="w-full flex flex-col items-center gap-3">
 					<p className="text-gray-400">错题列表</p>

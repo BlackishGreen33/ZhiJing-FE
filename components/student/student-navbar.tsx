@@ -49,7 +49,7 @@ const Box: React.FC<BoxProps> = ({
 
 	return (
 		<Link
-			href={id === 1 ? "/" : id === 2 ? "/solve" : "/analyze"}
+			href={id === 1 ? "/" : id === 2 ? "/student/solve" : "/student/analyze"}
 			className="flex flex-1"
 		>
 			<div

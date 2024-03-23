@@ -18,7 +18,7 @@ const page = () => {
 	];
 	return (
 		<main>
-			<SubpageHeader backUrl="/analyze" title={title} purpose="none" />
+			<SubpageHeader backUrl="/student/analyze" title={title} purpose="none" />
 			<PieChart
 				title="错题类别"
 				subTitle="知境"
@@ -28,13 +28,13 @@ const page = () => {
 			/>
 			<div className="w-full h-[25vh] grid grid-cols-2 grid-rows-1 gap-x-[10px] gap-y-[10px] px-[20px] py-[10px] relative top-[3vh]">
 				<Link
-					href={`/analyze/subject/history?type=${title}`}
+					href={`/student/analyze/subject/history?type=${title}`}
 					className="bg-blue-500 rounded-lg flex justify-center items-center"
 				>
 					<div className="font-bold">历史错题</div>
 				</Link>
 				<Link
-					href="/analyze/subject/enhance"
+					href="/student/analyze/subject/enhance"
 					className="bg-red-500 rounded-lg flex justify-center items-center"
 				>
 					<div className="font-bold">强化训练</div>
