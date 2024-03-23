@@ -1,5 +1,5 @@
 import SubpageHeader from "@/components/subpage-header";
-import SudentNavbar from "@/components/student/student-navbar";
+import TeacherNavbar from "@/components/teacher/teacher-navbar";
 import ChatInput from "@/components/chat/chat-input";
 import ChatFuction from "@/components/chat/chat-function";
 import {
@@ -36,7 +36,7 @@ const page = () => {
 
 	return (
 		<main>
-			<SubpageHeader backUrl="/" title="知境" purpose="dialogue"/>
+			<SubpageHeader backUrl="/teacher/dialogue" title="知境" purpose="dialogue"/>
 			<div className="w-full relative top-[10vh] flex flex-col gap-[2vh] px-[5%]">
 				{messages.map((item, index) =>
 					item.role === "ZJ" ? (
@@ -50,9 +50,9 @@ const page = () => {
 					)
 				)}
 			</div>
-			<ChatFuction userType="student"/>
+			<ChatFuction userType="teacher"/>
 			<ChatInput purpose="dialogue"/>
-			<SudentNavbar activeID={1} />
+			<TeacherNavbar activeID={1} />
 		</main>
 	);
 };
