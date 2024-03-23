@@ -28,7 +28,7 @@ const page = () => {
 			/>
 			<div className="w-full h-[25vh] grid grid-cols-2 grid-rows-1 gap-x-[10px] gap-y-[10px] px-[20px] py-[10px] relative top-[3vh]">
 				<Link
-					href="/"
+					href={`/analyze/subject/history?type=${title}`}
 					className="bg-blue-500 rounded-lg flex justify-center items-center"
 				>
 					<div className="font-bold">历史错题</div>
