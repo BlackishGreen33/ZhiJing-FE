@@ -22,14 +22,17 @@ const messageContainerStyle: React.CSSProperties = {
 	whiteSpace: "normal",
 };
 
-type HistoryQuestionProviderProps = {
+type QuestionProviderProps = {
+	title: string;
 	children?: React.ReactNode;
 };
 
-export function HistoryQuestionProvider({
+export function QuestionProvider({
 	children,
 	...props
-}: HistoryQuestionProviderProps) {
+}: QuestionProviderProps) {
+	const { title } = props;
+
 	const [answer, setAnswer] = useState("");
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [isCorrect, setIsCorrect] = useState(false);
@@ -45,8 +48,7 @@ export function HistoryQuestionProvider({
 			{ id: 4, content: "26" },
 		],
 		answer: "21",
-		detail:
-			"没有",
+		detail: "没有",
 	};
 
 	const handleClick = () => {
@@ -73,7 +75,7 @@ export function HistoryQuestionProvider({
 				</DialogTrigger>
 				<DialogContent className="sm:max-w-[425px]">
 					<DialogHeader>
-						<DialogTitle>历史错题</DialogTitle>
+						<DialogTitle>{title}</DialogTitle>
 						<DialogDescription>请选择一个最适合的选项</DialogDescription>
 					</DialogHeader>
 					<div className="grid w-full gap-1.5">

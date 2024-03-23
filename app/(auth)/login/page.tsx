@@ -14,8 +14,8 @@ const page = () => {
 		<div className="flex flex-col items-center relative">
 			<Image
 				className="absolute top-[5vh] w-[20vh] h-[20vh]"
-				src="/icon.png"
-				alt="logo"
+				src="/enhance.png"
+				alt="enhance"
 				width={200}
 				height={200}
 			/>

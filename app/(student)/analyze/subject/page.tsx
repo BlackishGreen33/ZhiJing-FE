@@ -34,7 +34,7 @@ const page = () => {
 					<div className="font-bold">历史错题</div>
 				</Link>
 				<Link
-					href="/"
+					href="/analyze/subject/enhance"
 					className="bg-red-500 rounded-lg flex justify-center items-center"
 				>
 					<div className="font-bold">强化训练</div>

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 import SubpageHeader from "@/components/subpage-header";
 import SudentNavbar from "@/components/student/student-navbar";
-import { HistoryQuestionProvider } from "@/components/providers/history-question-provider";
+import { QuestionProvider } from "@/components/providers/question-provider";
 
 const page = () => {
 	const questions = [
@@ -25,7 +25,7 @@ const page = () => {
 				{questions.map(
 					(item) =>
 						type === item.type && (
-							<HistoryQuestionProvider>
+							<QuestionProvider title="历史错题">
 								<div
 									className="w-[80%] h-[10vh] bg-neutral-800 rounded-lg flex items-center"
 									key={item.id}
@@ -48,7 +48,7 @@ const page = () => {
 										{item.title}
 									</div>
 								</div>
-							</HistoryQuestionProvider>
+							</QuestionProvider>
 						)
 				)}
 			</>
@@ -57,11 +57,7 @@ const page = () => {
 
 	return (
 		<main>
-			<SubpageHeader
-				backUrl="/analyze"
-				title="历史错题"
-				purpose="none"
-			/>
+			<SubpageHeader backUrl="/analyze" title="历史错题" purpose="none" />
 			<div className="relative top-[10vh] w-full h-[80vh] flex flex-col items-center gap-5 overflow-scroll">
 				<div className="w-full flex flex-col items-center gap-3">
 					<p className="text-gray-400">错题列表</p>
