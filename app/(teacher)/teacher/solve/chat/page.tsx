@@ -8,7 +8,7 @@ import ChatInput from "@/components/chat/chat-input";
 import {
 	UserMessage,
 	ZJMessage,
-} from "@/components/student/student-chat-message";
+} from "@/components/chat/chat-message";
 import { Label } from "@/components/ui/label";
 
 const messageContainerStyle: React.CSSProperties = {

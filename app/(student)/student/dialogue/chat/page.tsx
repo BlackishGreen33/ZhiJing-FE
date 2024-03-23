@@ -5,7 +5,7 @@ import ChatFuction from "@/components/chat/chat-function";
 import {
 	UserMessage,
 	ZJMessage,
-} from "@/components/student/student-chat-message";
+} from "@/components/chat/chat-message";
 
 const page = () => {
 	const messages = [

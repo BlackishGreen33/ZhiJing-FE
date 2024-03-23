@@ -5,7 +5,7 @@ import ChatFuction from "@/components/chat/chat-function";
 import {
 	UserMessage,
 	ZJMessage,
-} from "@/components/student/student-chat-message";
+} from "@/components/chat/chat-message";
 
 const page = () => {
 	const messages = [
@@ -36,7 +36,7 @@ const page = () => {
 
 	return (
 		<main>
-			<SubpageHeader backUrl="/teacher/dialogue" title="知境" purpose="dialogue"/>
+			<SubpageHeader backUrl="/teacher/dialogue" title="知境" purpose="none"/>
 			<div className="w-full relative top-[10vh] flex flex-col gap-[2vh] px-[5%]">
 				{messages.map((item, index) =>
 					item.role === "ZJ" ? (
