@@ -1,54 +1,40 @@
 "use client";
 
-import Link from "next/link";
-
 import Header from "@/components/main-header";
 import TeacherNavbar from "@/components/teacher/teacher-navbar";
 import PieChart from "@/components/pie-chart";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 const page = () => {
 	const data = [
-		{ value: 735, name: "数学" },
-		{ value: 510, name: "语文" },
-		{ value: 434, name: "历史" },
-		{ value: 335, name: "物理" },
+		{ value: 735, name: "选择题" },
+		{ value: 510, name: "是非题" },
+		{ value: 434, name: "计算题" },
 	];
 
 	return (
 		<main>
 			<Header />
 			<PieChart
-				title="错题比例"
+				title="错题类别"
 				subTitle="知境"
 				seriesName="错题数"
 				className="relative top-[10vh]"
 				data={data}
 			/>
-			<div className="w-full h-[25vh] grid grid-cols-2 grid-rows-2 gap-x-[10px] gap-y-[10px] px-[20px] py-[10px] relative top-[3vh]">
-				<Link
-					href="/student/analyze/subject?title=数学"
-					className="bg-blue-500 rounded-lg flex justify-center items-center"
-				>
-					<div className="font-bold">数学</div>
-				</Link>
-				<Link
-					href="/student/analyze/subject?title=语文"
-					className="bg-red-500 rounded-lg flex justify-center items-center"
-				>
-					<div className="font-bold">语文</div>
-				</Link>
-				<Link
-					href="/student/analyze/subject?title=历史"
-					className="bg-yellow-500 rounded-lg flex justify-center items-center"
-				>
-					<div className="font-bold">历史</div>
-				</Link>
-				<Link
-					href="/student/analyze/subject?title=物理"
-					className="bg-orange-500 rounded-lg flex justify-center items-center"
-				>
-					<div className="font-bold">物理</div>
-				</Link>
+			<div className="w-full h-[30vh] relative top-[3vh] flex flex-col items-center gap-[2vh]">
+				<p className="font-bold text-lg">错题分布分析</p>
+				<div className="w-full flex gap-1 justify-center items-center rounded">
+					<Textarea
+						id="analyze"
+						value="根据上述分析，该同学在选择题、是非题和计算题上都存在一定的困难和错误。为了改善错题分布，建议该同学重点关注在这三个题型上的弱点，并采取相应的措施进行提高，例如加强对题目的理解、注意细节、加强对公式和概念的掌握、多做相关类型的练习题目等。此外，及时反馈和与老师的沟通也是提高题目解答能力的重要途径。"
+						className="bg-gray-900 w-[80%] h-[20vh] outline-none border-none"
+						disabled
+					/>
+				</div>
+				<Button>易错题生成</Button>
 			</div>
 			<TeacherNavbar activeID={3} />
 		</main>
