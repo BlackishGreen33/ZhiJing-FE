@@ -1,19 +1,19 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
 import SubpageHeader from "@/components/subpage-header";
 import SudentNavbar from "@/components/student/student-navbar";
+import { HistoryQuestionProvider } from "@/components/providers/history-question-provider";
 
 const page = () => {
 	const questions = [
 		{ id: 1, type: "语文", title: "什么是断袖之癖" },
 		{ id: 2, type: "数学", title: "概率论" },
 		{ id: 3, type: "物理", title: "什么样的酯类物质可以制造兄弟的香气" },
-    { id: 4, type: "语文", title: "森鸥外的故事" },
+		{ id: 4, type: "语文", title: "森鸥外的故事" },
 	];
 
 	const renderQuestions = () => {
@@ -25,29 +25,30 @@ const page = () => {
 				{questions.map(
 					(item) =>
 						type === item.type && (
-							<Link
-								href="/"
-								className="w-[80%] h-[10vh] bg-neutral-800 rounded-lg flex items-center"
-								key={item.id}
-							>
+							<HistoryQuestionProvider>
 								<div
-									className={cn(
-										"w-[20%] h-[6vh] flex justify-center items-center relative left-3 rounded-xl",
-										item.type === "数学"
-											? "bg-blue-500"
-											: item.type === "语文"
-											? "bg-red-500"
-											: item.type === "历史"
-											? "bg-yellow-500"
-											: "bg-orange-500"
-									)}
+									className="w-[80%] h-[10vh] bg-neutral-800 rounded-lg flex items-center"
+									key={item.id}
 								>
-									{item.type}
+									<div
+										className={cn(
+											"w-[20%] h-[6vh] flex justify-center items-center relative left-3 rounded-xl",
+											item.type === "数学"
+												? "bg-blue-500"
+												: item.type === "语文"
+												? "bg-red-500"
+												: item.type === "历史"
+												? "bg-yellow-500"
+												: "bg-orange-500"
+										)}
+									>
+										{item.type}
+									</div>
+									<div className="w-[50%] h-[6vh] flex justify-center items-center relative left-[17%]">
+										{item.title}
+									</div>
 								</div>
-								<div className="w-[50%] h-[6vh] flex justify-center items-center relative left-[17%]">
-									{item.title}
-								</div>
-							</Link>
+							</HistoryQuestionProvider>
 						)
 				)}
 			</>
@@ -57,7 +58,7 @@ const page = () => {
 	return (
 		<main>
 			<SubpageHeader
-				backUrl="/analyze/subject"
+				backUrl="/analyze"
 				title="历史错题"
 				purpose="none"
 			/>
