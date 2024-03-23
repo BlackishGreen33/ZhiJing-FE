@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 type ChatInputProps = {
-	purpose: "dialogue" | "solve";
+	purpose: "dialogue" | "solve" | "answer";
 };
 
 const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
@@ -23,6 +23,8 @@ const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
 				<div className="w-[63%] absolute left-[18%]">
 					{purpose === "dialogue" ? (
 						<Input placeholder="与 知境 机器人对话" />
+					) : purpose === "answer" ? (
+						<Input placeholder="与 学生 对话" />
 					) : (
 						<Input placeholder="与 老师 对话" />
 					)}
