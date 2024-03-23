@@ -11,7 +11,7 @@ import SudentNavbar from "@/components/student/student-navbar";
 const page = () => {
 	const questions = [
 		{ id: 1, type: "语文", title: "什么是断袖之癖" },
-		{ id: 2, type: "数学", title: "常态分布" },
+		{ id: 2, type: "数学", title: "概率论" },
 		{ id: 3, type: "物理", title: "什么样的酯类物质可以制造兄弟的香气" },
     { id: 4, type: "语文", title: "森鸥外的故事" },
 	];
