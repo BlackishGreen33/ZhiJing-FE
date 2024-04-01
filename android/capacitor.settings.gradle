@@ -5,8 +5,5 @@ project(':capacitor-android').projectDir = new File('../node_modules/.pnpm/@capa
 include ':capacitor-preferences'
 project(':capacitor-preferences').projectDir = new File('../node_modules/.pnpm/@capacitor+preferences@5.0.7_@capacitor+core@5.7.0/node_modules/@capacitor/preferences/android')
 
-include ':capacitor-storage'
-project(':capacitor-storage').projectDir = new File('../node_modules/.pnpm/@capacitor+storage@1.2.5_@capacitor+core@5.7.0/node_modules/@capacitor/storage/android')
-
 include ':capacitor-toast'
 project(':capacitor-toast').projectDir = new File('../node_modules/.pnpm/@capacitor+toast@5.0.7_@capacitor+core@5.7.0/node_modules/@capacitor/toast/android')
