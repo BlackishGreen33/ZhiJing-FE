@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { ModeToggle } from "@/components/mode-toggle";
+import { ModeToggle } from "@/components/elements/mode-toggle";
 
 const Header = () => {
 	return (

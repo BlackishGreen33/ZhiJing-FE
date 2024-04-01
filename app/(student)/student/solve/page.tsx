@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import Link from "next/link";
 
-import Header from "@/components/main-header";
-import Navbar from "@/components/navbar";
+import Header from "@/components/elements/main-header";
+import Navbar from "@/components/elements/navbar";
 import { cn } from "@/lib/utils";
 
 const Page: NextPage = () => {

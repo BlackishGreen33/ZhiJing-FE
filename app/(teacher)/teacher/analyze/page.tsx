@@ -2,9 +2,9 @@
 
 import { NextPage } from "next";
 
-import Header from "@/components/main-header";
-import Navbar from "@/components/navbar";
-import PieChart from "@/components/pie-chart";
+import Header from "@/components/elements/main-header";
+import Navbar from "@/components/elements/navbar";
+import PieChart from "@/components/elements/pie-chart";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 

@@ -3,9 +3,9 @@
 import { NextPage } from "next";
 import Link from "next/link";
 
-import Header from "@/components/main-header";
-import Navbar from "@/components/navbar";
-import PieChart from "@/components/pie-chart";
+import Header from "@/components/elements/main-header";
+import Navbar from "@/components/elements/navbar";
+import PieChart from "@/components/elements/pie-chart";
 
 const Page: NextPage = () => {
 	const data = [

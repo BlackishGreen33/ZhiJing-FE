@@ -4,9 +4,9 @@ import { NextPage } from "next";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-import SubpageHeader from "@/components/subpage-header";
-import Navbar from "@/components/navbar";
-import PieChart from "@/components/pie-chart";
+import SubpageHeader from "@/components/elements/subpage-header";
+import Navbar from "@/components/elements/navbar";
+import PieChart from "@/components/elements/pie-chart";
 
 const Page: NextPage = () => {
 	const searchParams = useSearchParams();

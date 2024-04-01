@@ -4,8 +4,8 @@ import { NextPage } from "next";
 import { useState } from "react";
 import Image from "next/image";
 
-import SubpageHeader from "@/components/subpage-header";
-import Navbar from "@/components/navbar";
+import SubpageHeader from "@/components/elements/subpage-header";
+import Navbar from "@/components/elements/navbar";
 import { Button } from "@/components/ui/button";
 import { QuestionProvider } from "@/components/providers/question-provider";
 

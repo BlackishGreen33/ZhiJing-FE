@@ -4,9 +4,9 @@ import { NextPage } from "next";
 
 import useTokenCheck from "@/hooks/use-token-checked";
 
-import Header from "@/components/main-header";
-import Navbar from "@/components/navbar";
-import ConsultingSubjects from "@/components/consulting-subjects";
+import Header from "@/components/elements/main-header";
+import Navbar from "@/components/elements/navbar";
+import ConsultingSubjects from "@/components/elements/consulting-subjects";
 
 const Page: NextPage = () => {
 	useTokenCheck();

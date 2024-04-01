@@ -5,8 +5,8 @@ import { useSearchParams } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
-import SubpageHeader from "@/components/subpage-header";
-import Navbar from "@/components/navbar";
+import SubpageHeader from "@/components/elements/subpage-header";
+import Navbar from "@/components/elements/navbar";
 import { QuestionProvider } from "@/components/providers/question-provider";
 
 const Page: NextPage = () => {

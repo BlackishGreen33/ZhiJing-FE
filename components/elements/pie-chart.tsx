@@ -60,6 +60,7 @@ const PieChart: React.FC<PieChartProps> = ({
 		],
 	};
 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const chartInit = () => {
 		const mychartpie = Echarts.init(chartpie.current);
 		mychartpie.setOption(pieOption, true);
@@ -75,7 +76,7 @@ const PieChart: React.FC<PieChartProps> = ({
 		return () => {
 			window.onresize = null;
 		};
-	}, []);
+	}, [chartInit]);
 
 	return (
 		<div
