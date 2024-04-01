@@ -1,7 +1,19 @@
 {
-  "name": "zhijing-fe",
-  "version": "0.1.0",
+  "name": "zhijing",
+  "version": "1.0.0",
+  "description": "知境：基于educhat的多模态全学科对话式学习助手",
   "private": true,
+  "author": "ZhiJing Team",
+  "contributors": [
+    "BlackishGreen33 <s5460703@gmail.com> (https://www.blackishgreen.link/)"
+  ],
+  "homepage": "https://github.com/FZXB-edu-project/ZhiJing-FE",
+  "repository": "https://github.com/FZXB-edu-project/ZhiJing-FE",
+  "bugs": {
+    "url": "https://github.com/FZXB-edu-project/ZhiJing-FE/issues",
+    "email": "s5460703@gmail.com"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
