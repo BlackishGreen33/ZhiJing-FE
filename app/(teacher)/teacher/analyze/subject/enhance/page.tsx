@@ -5,7 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 import SubpageHeader from "@/components/subpage-header";
-import SudentNavbar from "@/components/student/student-navbar";
+import Navbar from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import { QuestionProvider } from "@/components/providers/question-provider";
 
@@ -36,7 +36,7 @@ const Page: NextPage = () => {
 					</Button>
 				</QuestionProvider>
 			</div>
-			<SudentNavbar activeID={3} />
+			<Navbar activeID={3} role="teacher"/>
 		</main>
 	);
 };

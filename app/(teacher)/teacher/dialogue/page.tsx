@@ -5,7 +5,7 @@ import { NextPage } from "next";
 import useTokenCheck from "@/hooks/use-token-checked";
 
 import Header from "@/components/main-header";
-import TeacherNavbar from "@/components/teacher/teacher-navbar";
+import Navbar from "@/components/navbar";
 import ConsultingSubjects from "@/components/consulting-subjects";
 
 const Page: NextPage = () => {
@@ -15,7 +15,7 @@ const Page: NextPage = () => {
 		<main>
 			<Header />
 			<ConsultingSubjects purpose="teacher" />
-			<TeacherNavbar activeID={1} />
+			<Navbar activeID={1} role="teacher"/>
 		</main>
 	);
 };

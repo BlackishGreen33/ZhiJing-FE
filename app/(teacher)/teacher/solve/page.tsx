@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 
 import Header from "@/components/main-header";
-import TeacherNavbar from "@/components/teacher/teacher-navbar";
+import Navbar from "@/components/navbar";
 
 import { cn } from "@/lib/utils";
 
@@ -57,7 +57,7 @@ const Page: NextPage = () => {
 					{renderQuestions(false)}
 				</div>
 			</div>
-			<TeacherNavbar activeID={2} />
+			<Navbar activeID={2} role="teacher"/>
 		</main>
 	);
 };

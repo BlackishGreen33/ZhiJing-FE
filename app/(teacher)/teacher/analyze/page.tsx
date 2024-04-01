@@ -3,7 +3,7 @@
 import { NextPage } from "next";
 
 import Header from "@/components/main-header";
-import TeacherNavbar from "@/components/teacher/teacher-navbar";
+import Navbar from "@/components/navbar";
 import PieChart from "@/components/pie-chart";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -37,7 +37,7 @@ const Page: NextPage = () => {
 				</div>
 				<Button>易错题生成</Button>
 			</div>
-			<TeacherNavbar activeID={3} />
+			<Navbar activeID={3} role="teacher"/>
 		</main>
 	);
 };

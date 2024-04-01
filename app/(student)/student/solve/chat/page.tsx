@@ -4,7 +4,7 @@ import { NextPage } from "next";
 import { useSearchParams } from "next/navigation";
 
 import SubpageHeader from "@/components/subpage-header";
-import SudentNavbar from "@/components/student/student-navbar";
+import Navbar from "@/components/navbar";
 import ChatInput from "@/components/chat/chat-input";
 import { UserMessage, ZJMessage } from "@/components/chat/chat-message";
 import { Label } from "@/components/ui/label";
@@ -72,7 +72,7 @@ const Page: NextPage = () => {
 				</div>
 			</div>
 			<ChatInput purpose="solve" />
-			<SudentNavbar activeID={2} />
+			<Navbar activeID={2} role="student"/>
 		</main>
 	);
 };

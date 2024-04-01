@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 import SubpageHeader from "@/components/subpage-header";
-import SudentNavbar from "@/components/student/student-navbar";
+import Navbar from "@/components/navbar";
 import PieChart from "@/components/pie-chart";
 
 const Page: NextPage = () => {
@@ -41,7 +41,7 @@ const Page: NextPage = () => {
 					<div className="font-bold">强化训练</div>
 				</Link>
 			</div>
-			<SudentNavbar activeID={3} />
+			<Navbar activeID={3} role="student" />
 		</main>
 	);
 };

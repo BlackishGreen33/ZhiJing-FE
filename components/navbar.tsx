@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MessageCircleMore, ClipboardPen, Lightbulb } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -10,10 +10,12 @@ type BoxProps = {
 	content: string;
 	activeItemId: number;
 	updateActiveItemId: (id: number) => void;
+	role: "student" | "teacher";
 };
 
-type TeacherNavbarProps = {
+type NavbarProps = {
 	activeID: number;
+	role: "student" | "teacher";
 };
 
 const Box: React.FC<BoxProps> = ({
@@ -21,6 +23,7 @@ const Box: React.FC<BoxProps> = ({
 	content,
 	activeItemId,
 	updateActiveItemId,
+	role,
 }) => {
 	const handleClick = () => {
 		updateActiveItemId(id);
@@ -30,17 +33,21 @@ const Box: React.FC<BoxProps> = ({
 		color: activeItemId === id ? "#327cc6" : "#9c9c9c",
 	};
 
+	const getHref = () => {
+		if (role === "student") {
+			return id === 1 ? "/" : id === 2 ? "/student/solve" : "/student/analyze";
+		} else if (role === "teacher") {
+			return id === 1
+				? "/teacher/dialogue"
+				: id === 2
+				? "/teacher/solve"
+				: "/teacher/analyze";
+		}
+		return "student";
+	};
+
 	return (
-		<Link
-			href={
-				id === 1
-					? "/teacher/dialogue"
-					: id === 2
-					? "/teacher/solve"
-					: "/teacher/analyze"
-			}
-			className="flex flex-1"
-		>
+		<Link href={getHref()} className="flex flex-1">
 			<motion.div
 				onClick={handleClick}
 				style={colorStyle}
@@ -62,11 +69,11 @@ const Box: React.FC<BoxProps> = ({
 	);
 };
 
-const TeacherNavbar: React.FC<TeacherNavbarProps> = ({ activeID }) => {
+const Navbar: React.FC<NavbarProps> = ({ activeID, role }) => {
 	const navItems = [
 		{ id: 1, content: "对话" },
 		{ id: 2, content: "答疑區" },
-		{ id: 3, content: "学情分析" },
+		{ id: 3, content: role === "student" ? "学情分析" : "学生情况" },
 	];
 
 	const [activeItemId, setActiveItemId] = useState(activeID);
@@ -86,6 +93,7 @@ const TeacherNavbar: React.FC<TeacherNavbarProps> = ({ activeID }) => {
 						content={item.content}
 						activeItemId={activeItemId}
 						updateActiveItemId={updateActiveItemId}
+						role={role}
 					/>
 				))}
 			</div>
@@ -93,4 +101,4 @@ const TeacherNavbar: React.FC<TeacherNavbarProps> = ({ activeID }) => {
 	);
 };
 
-export default TeacherNavbar;
+export default Navbar;

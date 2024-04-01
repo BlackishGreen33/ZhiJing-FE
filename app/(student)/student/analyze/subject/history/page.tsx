@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 import SubpageHeader from "@/components/subpage-header";
-import SudentNavbar from "@/components/student/student-navbar";
+import Navbar from "@/components/navbar";
 import { QuestionProvider } from "@/components/providers/question-provider";
 
 const Page: NextPage = () => {
@@ -66,7 +66,7 @@ const Page: NextPage = () => {
 					{RenderQuestions()}
 				</div>
 			</div>
-			<SudentNavbar activeID={3} />
+			<Navbar activeID={3} role="student"/>
 		</main>
 	);
 };

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
 import SubpageHeader from "@/components/subpage-header";
-import SudentNavbar from "@/components/student/student-navbar";
+import Navbar from "@/components/navbar";
 import ChatInput from "@/components/chat/chat-input";
 import ChatFuction from "@/components/chat/chat-function";
 import { UserMessage, ZJMessage } from "@/components/chat/chat-message";
@@ -51,7 +51,7 @@ const Page: NextPage = () => {
 			</div>
 			<ChatFuction userType="student" />
 			<ChatInput purpose="dialogue" />
-			<SudentNavbar activeID={1} />
+			<Navbar activeID={1} role="student"/>
 		</main>
 	);
 };

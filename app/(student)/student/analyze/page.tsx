@@ -4,7 +4,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 
 import Header from "@/components/main-header";
-import SudentNavbar from "@/components/student/student-navbar";
+import Navbar from "@/components/navbar";
 import PieChart from "@/components/pie-chart";
 
 const Page: NextPage = () => {
@@ -51,7 +51,7 @@ const Page: NextPage = () => {
 					<div className="font-bold">物理</div>
 				</Link>
 			</div>
-			<SudentNavbar activeID={3} />
+			<Navbar activeID={3} role="student"/>
 		</main>
 	);
 };

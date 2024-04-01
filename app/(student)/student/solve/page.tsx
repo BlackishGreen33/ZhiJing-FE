@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 
 import Header from "@/components/main-header";
-import SudentNavbar from "@/components/student/student-navbar";
+import Navbar from "@/components/navbar";
 import { cn } from "@/lib/utils";
 
 const Page: NextPage = () => {
@@ -60,7 +60,7 @@ const Page: NextPage = () => {
 					{renderQuestions(true)}
 				</div>
 			</div>
-			<SudentNavbar activeID={2} />
+			<Navbar activeID={2} role="student" />
 		</main>
 	);
 };
