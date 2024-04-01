@@ -1,27 +1,27 @@
-import { CapacitorHttp } from "@capacitor/core";
+import { CapacitorHttp } from '@capacitor/core';
 
-const preurl = "https://zhijing.bigdust.space/api/v1";
+const preurl = 'https://zhijing.bigdust.space/api/v1';
 // const token = localStorage.getItem("token");
 
-export async function postData(url = "", data = {}) {
-	try {
-		// if (!token) {
-		// 	return;
-		// }
+export async function postData(url = '', data = {}) {
+  try {
+    // if (!token) {
+    // 	return;
+    // }
 
-		const response = await CapacitorHttp.post({
-			url: preurl + url,
-			headers: {
-				"Content-Type": "application/json;charset=utf-8",
-				// "Authorization": token,
-			},
-			data: data,
-		});
+    const response = await CapacitorHttp.post({
+      url: preurl + url,
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        // "Authorization": token,
+      },
+      data: data,
+    });
 
-		return response.data.data;
-	} catch (error) {
-		console.error(error);
-	}
+    return response.data.data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // export async function getJson(url = "") {
@@ -67,36 +67,36 @@ export async function postData(url = "", data = {}) {
 // 	}
 // }
 
-export async function authPost(url = "", data = {}) {
-	try {
-		const response = await CapacitorHttp.post({
-			url: preurl + url,
-			headers: {
-				"Content-Type": "application/json;charset=utf-8",
-			},
-			data: data,
-		});
+export async function authPost(url = '', data = {}) {
+  try {
+    const response = await CapacitorHttp.post({
+      url: preurl + url,
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      data: data,
+    });
 
-		return response.data.data;
-	} catch (error) {
-		console.error(error);
-	}
+    return response.data.data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-export async function authGet(url = "", email: string) {
-	try {
-		const response = await CapacitorHttp.get({
-			url: preurl + url,
-			headers: {
-				"Content-Type": "application/json;charset=utf-8",
-			},
-			params: {
-				email: email,
-			},
-		});
+export async function authGet(url = '', email: string) {
+  try {
+    const response = await CapacitorHttp.get({
+      url: preurl + url,
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      params: {
+        email: email,
+      },
+    });
 
-		return response.data;
-	} catch (error) {
-		console.error(error);
-	}
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 }

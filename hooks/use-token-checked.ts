@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { Preferences } from "@capacitor/preferences";
-import { useRouter } from "next/navigation";
+import { Preferences } from '@capacitor/preferences';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 const useTokenCheck = () => {
-	const router = useRouter();
+  const router = useRouter();
 
-	useEffect(() => {
-		const tokenChecked = async () => {
-			const { value } = await Preferences.get({ key: "token" });
-			const isToken = !!value;
-			console.log(value);
-			if (!isToken) router.push("/login");
-		};
+  useEffect(() => {
+    const tokenChecked = async () => {
+      const { value } = await Preferences.get({ key: 'token' });
+      const isToken = !!value;
+      console.log(value);
+      if (!isToken) router.push('/login');
+    };
 
-		tokenChecked();
-	}, []);
+    tokenChecked();
+  }, []);
 };
 
 export default useTokenCheck;

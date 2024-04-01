@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import { NextPage } from "next";
+import { NextPage } from 'next';
 
-import useTokenCheck from "@/hooks/use-token-checked";
+import useTokenCheck from '@/hooks/use-token-checked';
 
-import Header from "@/components/elements/main-header";
-import Navbar from "@/components/elements/navbar";
-import ConsultingSubjects from "@/components/elements/consulting-subjects";
+import ConsultingSubjects from '@/components/elements/consulting-subjects';
+import Header from '@/components/elements/main-header';
+import Navbar from '@/components/elements/navbar';
 
 const Page: NextPage = () => {
-	useTokenCheck();
+  useTokenCheck();
 
-	return (
-		<main>
-			<Header />
-			<ConsultingSubjects purpose="teacher" />
-			<Navbar activeID={1} role="teacher"/>
-		</main>
-	);
+  return (
+    <main>
+      <Header />
+      <ConsultingSubjects purpose="teacher" />
+      <Navbar activeID={1} role="teacher" />
+    </main>
+  );
 };
 
 export default Page;
