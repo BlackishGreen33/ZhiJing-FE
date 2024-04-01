@@ -1,13 +1,14 @@
 "use client";
 
+import { NextPage } from "next";
+
 import Header from "@/components/main-header";
 import TeacherNavbar from "@/components/teacher/teacher-navbar";
 import PieChart from "@/components/pie-chart";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
-const page = () => {
+const Page: NextPage = () => {
 	const data = [
 		{ value: 735, name: "选择题" },
 		{ value: 510, name: "是非题" },
@@ -41,4 +42,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

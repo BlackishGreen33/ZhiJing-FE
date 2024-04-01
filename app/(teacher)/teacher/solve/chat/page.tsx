@@ -1,5 +1,6 @@
 "use client";
 
+import { NextPage } from "next";
 import { useSearchParams } from "next/navigation";
 
 import SubpageHeader from "@/components/subpage-header";
@@ -14,7 +15,7 @@ const messageContainerStyle: React.CSSProperties = {
 	whiteSpace: "normal",
 };
 
-const page = () => {
+const Page: NextPage = () => {
 	const searchParams = useSearchParams();
 
 	const title = searchParams.get("title") || "";
@@ -76,4 +77,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

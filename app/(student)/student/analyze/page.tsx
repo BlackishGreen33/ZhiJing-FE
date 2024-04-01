@@ -1,12 +1,13 @@
 "use client";
 
+import { NextPage } from "next";
 import Link from "next/link";
 
 import Header from "@/components/main-header";
 import SudentNavbar from "@/components/student/student-navbar";
 import PieChart from "@/components/pie-chart";
 
-const page = () => {
+const Page: NextPage = () => {
 	const data = [
 		{ value: 735, name: "数学" },
 		{ value: 510, name: "语文" },
@@ -55,4 +56,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

@@ -1,5 +1,6 @@
 "use client";
 
+import { NextPage } from "next";
 import { useSearchParams } from "next/navigation";
 
 import { cn } from "@/lib/utils";
@@ -8,7 +9,7 @@ import SubpageHeader from "@/components/subpage-header";
 import SudentNavbar from "@/components/student/student-navbar";
 import { QuestionProvider } from "@/components/providers/question-provider";
 
-const page = () => {
+const Page: NextPage = () => {
 	const questions = [
 		{ id: 1, type: "语文", title: "什么是断袖之癖" },
 		{ id: 2, type: "数学", title: "概率论" },
@@ -16,7 +17,7 @@ const page = () => {
 		{ id: 4, type: "语文", title: "森鸥外的故事" },
 	];
 
-	const renderQuestions = () => {
+	const RenderQuestions = () => {
 		const searchParams = useSearchParams();
 		const type = searchParams.get("type") || "";
 
@@ -25,11 +26,8 @@ const page = () => {
 				{questions.map(
 					(item) =>
 						type === item.type && (
-							<QuestionProvider title="历史错题">
-								<div
-									className="w-[80%] h-[10vh] bg-neutral-800 rounded-lg flex items-center"
-									key={item.id}
-								>
+							<QuestionProvider title="历史错题" key={item.id}>
+								<div className="w-[80%] h-[10vh] bg-neutral-800 rounded-lg flex items-center">
 									<div
 										className={cn(
 											"w-[20%] h-[6vh] flex justify-center items-center relative left-3 rounded-xl",
@@ -57,11 +55,15 @@ const page = () => {
 
 	return (
 		<main>
-			<SubpageHeader backUrl="/student/analyze" title="历史错题" purpose="none" />
+			<SubpageHeader
+				backUrl="/student/analyze"
+				title="历史错题"
+				purpose="none"
+			/>
 			<div className="relative top-[10vh] w-full h-[80vh] flex flex-col items-center gap-5 overflow-scroll">
 				<div className="w-full flex flex-col items-center gap-3">
 					<p className="text-gray-400">错题列表</p>
-					{renderQuestions()}
+					{RenderQuestions()}
 				</div>
 			</div>
 			<SudentNavbar activeID={3} />
@@ -69,4 +71,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

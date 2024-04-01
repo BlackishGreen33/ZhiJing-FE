@@ -1,12 +1,14 @@
 "use client";
 
+import { NextPage } from "next";
+
 import useTokenCheck from "@/hooks/use-token-checked";
 
 import Header from "@/components/main-header";
 import TeacherNavbar from "@/components/teacher/teacher-navbar";
 import ConsultingSubjects from "@/components/consulting-subjects";
 
-export default function Home() {
+const Page: NextPage = () => {
 	useTokenCheck();
 
 	return (
@@ -16,4 +18,6 @@ export default function Home() {
 			<TeacherNavbar activeID={1} />
 		</main>
 	);
-}
+};
+
+export default Page;

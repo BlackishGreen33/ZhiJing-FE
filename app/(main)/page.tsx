@@ -1,12 +1,14 @@
 "use client";
 
+import { NextPage } from "next";
+
 import useTokenCheck from "@/hooks/use-token-checked";
 
 import Header from "@/components/main-header";
 import SudentNavbar from "@/components/student/student-navbar";
 import ConsultingSubjects from "@/components/consulting-subjects";
 
-export default function Home() {
+const HomePage: NextPage = () => {
 	useTokenCheck();
 
 	return (
@@ -16,4 +18,6 @@ export default function Home() {
 			<SudentNavbar activeID={1} />
 		</main>
 	);
-}
+};
+
+export default HomePage;

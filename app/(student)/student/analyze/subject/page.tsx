@@ -1,5 +1,6 @@
 "use client";
 
+import { NextPage } from "next";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
@@ -7,7 +8,7 @@ import SubpageHeader from "@/components/subpage-header";
 import SudentNavbar from "@/components/student/student-navbar";
 import PieChart from "@/components/pie-chart";
 
-const page = () => {
+const Page: NextPage = () => {
 	const searchParams = useSearchParams();
 	const title = searchParams.get("title") || "";
 
@@ -45,4 +46,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

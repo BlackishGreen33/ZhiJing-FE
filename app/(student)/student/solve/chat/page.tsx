@@ -1,14 +1,12 @@
 "use client";
 
+import { NextPage } from "next";
 import { useSearchParams } from "next/navigation";
 
 import SubpageHeader from "@/components/subpage-header";
 import SudentNavbar from "@/components/student/student-navbar";
 import ChatInput from "@/components/chat/chat-input";
-import {
-	UserMessage,
-	ZJMessage,
-} from "@/components/chat/chat-message";
+import { UserMessage, ZJMessage } from "@/components/chat/chat-message";
 import { Label } from "@/components/ui/label";
 
 const messageContainerStyle: React.CSSProperties = {
@@ -17,7 +15,7 @@ const messageContainerStyle: React.CSSProperties = {
 	whiteSpace: "normal",
 };
 
-const page = () => {
+const Page: NextPage = () => {
 	const searchParams = useSearchParams();
 
 	const title = searchParams.get("title") || "";
@@ -79,4 +77,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

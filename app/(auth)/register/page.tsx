@@ -1,11 +1,12 @@
 "use client";
 
+import { NextPage } from "next";
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import AuthForm from "@/components/auth/auth-form";
 
-const page = () => {
+const Page: NextPage = () => {
 	const router = useRouter();
 
 	return (
@@ -29,4 +30,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

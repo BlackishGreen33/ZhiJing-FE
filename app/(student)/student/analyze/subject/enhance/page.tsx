@@ -1,5 +1,6 @@
 "use client";
 
+import { NextPage } from "next";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -8,7 +9,7 @@ import SudentNavbar from "@/components/student/student-navbar";
 import { Button } from "@/components/ui/button";
 import { QuestionProvider } from "@/components/providers/question-provider";
 
-const page = () => {
+const Page: NextPage = () => {
 	const [buttonName, setButtonName] = useState("开始刷题");
 
 	return (
@@ -36,4 +37,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

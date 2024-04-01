@@ -1,5 +1,6 @@
 "use client";
 
+import { NextPage } from "next";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -8,12 +9,16 @@ import SudentNavbar from "@/components/student/student-navbar";
 import { Button } from "@/components/ui/button";
 import { QuestionProvider } from "@/components/providers/question-provider";
 
-const page = () => {
+const Page: NextPage = () => {
 	const [buttonName, setButtonName] = useState("开始刷题");
 
 	return (
 		<main>
-			<SubpageHeader backUrl="/student/analyze" title="强化巩固" purpose="none" />
+			<SubpageHeader
+				backUrl="/student/analyze"
+				title="强化巩固"
+				purpose="none"
+			/>
 			<div className="relative top-[10vh] w-full flex flex-col items-center gap-5">
 				<Image
 					className="absolute top-[5vh] w-[50vh] h-[50vh]"
@@ -36,4 +41,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

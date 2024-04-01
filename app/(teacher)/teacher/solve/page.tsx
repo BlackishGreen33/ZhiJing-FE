@@ -1,3 +1,4 @@
+import { NextPage } from "next";
 import Link from "next/link";
 
 import Header from "@/components/main-header";
@@ -5,7 +6,7 @@ import TeacherNavbar from "@/components/teacher/teacher-navbar";
 
 import { cn } from "@/lib/utils";
 
-const page = () => {
+const Page: NextPage = () => {
 	const questions = [
 		{ id: 1, type: "小明", title: "微分方程", isSolve: false },
 		{ id: 2, type: "阿花", title: "常态分布", isSolve: false },
@@ -61,4 +62,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

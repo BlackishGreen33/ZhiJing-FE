@@ -1,10 +1,11 @@
+import { NextPage } from "next";
 import Link from "next/link";
 
 import Header from "@/components/main-header";
 import SudentNavbar from "@/components/student/student-navbar";
 import { cn } from "@/lib/utils";
 
-const page = () => {
+const Page: NextPage = () => {
 	const questions = [
 		{ id: 1, type: "数学", title: "微分方程", isSolve: false },
 		{ id: 2, type: "数学", title: "常态分布", isSolve: false },
@@ -64,4 +65,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;
