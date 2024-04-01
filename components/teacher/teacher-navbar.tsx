@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { MessageCircleMore, ClipboardPen, Lightbulb } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type BoxProps = {
 	id: number;
@@ -21,41 +22,30 @@ const Box: React.FC<BoxProps> = ({
 	activeItemId,
 	updateActiveItemId,
 }) => {
-	const [isClicked, setIsClicked] = useState(false);
-	const [scaleValue, setScaleValue] = useState(1);
-
-	useEffect(() => {
-		if (isClicked) {
-			setScaleValue(0.9);
-			setTimeout(() => {
-				setScaleValue(1.2);
-				setTimeout(() => {
-					setScaleValue(1);
-					setIsClicked(false);
-				}, 70);
-			}, 120);
-		}
-	}, [isClicked]);
-
 	const handleClick = () => {
-		setIsClicked(true);
 		updateActiveItemId(id);
 	};
 
-	const scaleStyle: React.CSSProperties = {
-		transform: `scale(${scaleValue})`,
+	const colorStyle: React.CSSProperties = {
 		color: activeItemId === id ? "#327cc6" : "#9c9c9c",
 	};
 
 	return (
 		<Link
-			href={id === 1 ? "/teacher/dialogue" : id === 2 ? "/teacher/solve" : "/teacher/analyze"}
+			href={
+				id === 1
+					? "/teacher/dialogue"
+					: id === 2
+					? "/teacher/solve"
+					: "/teacher/analyze"
+			}
 			className="flex flex-1"
 		>
-			<div
+			<motion.div
 				onClick={handleClick}
-				style={scaleStyle}
+				style={colorStyle}
 				className="flex flex-1 justify-center items-center"
+				whileTap={{ scale: [0.9, 1.2, 1] }}
 			>
 				<div className="flex flex-col justify-center items-center h-5vh font-semibold">
 					{id === 1 ? (
@@ -67,7 +57,7 @@ const Box: React.FC<BoxProps> = ({
 					)}
 					<div className="text-xs">{content}</div>
 				</div>
-			</div>
+			</motion.div>
 		</Link>
 	);
 };
