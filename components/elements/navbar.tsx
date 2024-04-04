@@ -1,9 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ClipboardPen, Lightbulb, MessageCircleMore } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
+
+import { motion } from 'framer-motion';
+import { ClipboardPen, Lightbulb, MessageCircleMore } from 'lucide-react';
+
+import { scaleAnimation } from '@/animations/whileTapAnimations';
 
 type BoxProps = {
   id: number;
@@ -52,7 +55,7 @@ const Box: React.FC<BoxProps> = ({
         onClick={handleClick}
         style={colorStyle}
         className="flex flex-1 items-center justify-center"
-        whileTap={{ scale: [0.9, 1.2, 1] }}
+        whileTap={scaleAnimation}
       >
         <div className="h-5vh flex flex-col items-center justify-center font-semibold">
           {id === 1 ? (
