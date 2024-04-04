@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
-import './globals.css';
+import './globals.scss';
 
 const font = Open_Sans({ subsets: ['latin'] });
 

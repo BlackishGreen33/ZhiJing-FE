@@ -67,7 +67,7 @@ dependencies:
     version: 0.336.0(react@18.2.0)
   next:
     specifier: 14.1.0
-    version: 14.1.0(react-dom@18.2.0)(react@18.2.0)
+    version: 14.1.0(react-dom@18.2.0)(react@18.2.0)(sass@1.74.1)
   next-themes:
     specifier: ^0.2.1
     version: 0.2.1(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
@@ -77,6 +77,9 @@ dependencies:
   react-dom:
     specifier: ^18
     version: 18.2.0(react@18.2.0)
+  sass:
+    specifier: ^1.74.1
+    version: 1.74.1
   tailwind-merge:
     specifier: ^2.2.1
     version: 2.2.1
@@ -2698,6 +2701,10 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
+  /immutable@4.3.5:
+    resolution: {integrity: sha512-8eabxkth9gZatlwl5TBuJnCsoTADlL6ftEr7A4qgdaTsPyreilDSnUk57SO+jfKcNtxPa22U5KK6DSeAYhpBJw==}
+    dev: false
+
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -3279,12 +3286,12 @@ packages:
       react: '*'
       react-dom: '*'
     dependencies:
-      next: 14.1.0(react-dom@18.2.0)(react@18.2.0)
+      next: 14.1.0(react-dom@18.2.0)(react@18.2.0)(sass@1.74.1)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /next@14.1.0(react-dom@18.2.0)(react@18.2.0):
+  /next@14.1.0(react-dom@18.2.0)(react@18.2.0)(sass@1.74.1):
     resolution: {integrity: sha512-wlzrsbfeSU48YQBjZhDzOwhWhGsy+uQycR8bHAOt1LY1bn3zZEcDyHQOEoN3aWzQ8LHCAJ1nqrWCc9XF2+O45Q==}
     engines: {node: '>=18.17.0'}
     hasBin: true
@@ -3307,6 +3314,7 @@ packages:
       postcss: 8.4.31
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+      sass: 1.74.1
       styled-jsx: 5.1.1(react@18.2.0)
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.1.0
@@ -3932,6 +3940,16 @@ packages:
       es-errors: 1.3.0
       is-regex: 1.1.4
     dev: true
+
+  /sass@1.74.1:
+    resolution: {integrity: sha512-w0Z9p/rWZWelb88ISOLyvqTWGmtmu2QJICqDBGyNnfG4OUnPX9BBjjYIXUpXCMOOg5MQWNpqzt876la1fsTvUA==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.6.0
+      immutable: 4.3.5
+      source-map-js: 1.0.2
+    dev: false
 
   /sax@1.1.4:
     resolution: {integrity: sha512-5f3k2PbGGp+YtKJjOItpg3P99IMD84E4HOvcfleTb5joCHNXYLsR9yWFPOYGgaeMPDubQILTCMdsFb2OMeOjtg==}
