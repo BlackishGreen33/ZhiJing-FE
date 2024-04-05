@@ -1,5 +1,5 @@
 import { FolderPlus, SendHorizonal } from 'lucide-react';
-import { useContext,useState } from 'react';
+import { useContext, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -29,11 +29,23 @@ const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
         </div>
         <div className="absolute left-[18%] w-[63%]">
           {purpose === 'dialogue' ? (
-            <Input placeholder="与 知境 机器人对话" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
+            <Input
+              placeholder="与 知境 机器人对话"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
           ) : purpose === 'answer' ? (
-            <Input placeholder="与 学生 对话" />
+            <Input
+              placeholder="与 学生 对话"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
           ) : (
-            <Input placeholder="与 老师 对话" />
+            <Input
+              placeholder="与 老师 对话"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
           )}
         </div>
         <div className="absolute right-[5%]">
