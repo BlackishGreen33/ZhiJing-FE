@@ -1,5 +1,5 @@
 import { FolderPlus, SendHorizonal } from 'lucide-react';
-import { useContext } from 'react';
+import { useContext,useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,6 +11,7 @@ type ChatInputProps = {
 };
 
 const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
+  const [inputValue, setInputValue] = useState('');
   const { incrementClickCount } = useContext(ButtonContext)!;
 
   return (
@@ -28,7 +29,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
         </div>
         <div className="absolute left-[18%] w-[63%]">
           {purpose === 'dialogue' ? (
-            <Input placeholder="与 知境 机器人对话" />
+            <Input placeholder="与 知境 机器人对话" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
           ) : purpose === 'answer' ? (
             <Input placeholder="与 学生 对话" />
           ) : (
@@ -40,7 +41,10 @@ const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
             className="border-0"
             variant="default"
             size="icon"
-            onClick={incrementClickCount}
+            onClick={() => {
+              incrementClickCount();
+              setInputValue('');
+            }}
           >
             <SendHorizonal />
           </Button>

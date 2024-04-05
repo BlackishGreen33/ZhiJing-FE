@@ -1,4 +1,5 @@
 import { Share, ThumbsDown, ThumbsUp } from 'lucide-react';
+import Image from 'next/image';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -17,6 +18,7 @@ import { Textarea } from '@/components/ui/textarea';
 type MessageProps = {
   content: string;
   isLatest?: boolean;
+  isLoading?: boolean;
 };
 
 const messageContainerStyle: React.CSSProperties = {
@@ -25,7 +27,11 @@ const messageContainerStyle: React.CSSProperties = {
   whiteSpace: 'pre-line',
 };
 
-export const ZJMessage: React.FC<MessageProps> = ({ content, isLatest }) => {
+export const ZJMessage: React.FC<MessageProps> = ({
+  content,
+  isLatest,
+  isLoading,
+}) => {
   return (
     <div className="flex w-full flex-col gap-[1vh]">
       <div className="flex gap-[3%]">
@@ -37,10 +43,23 @@ export const ZJMessage: React.FC<MessageProps> = ({ content, isLatest }) => {
           className="h-auto max-w-full rounded-lg bg-gray-800 p-3"
           style={messageContainerStyle}
         >
-          {content}
+          {isLoading && isLatest ? (
+            <span>
+              <Image
+                src="/generate.png"
+                width={50}
+                height={50}
+                alt="loading"
+                className="animate-spin"
+              />
+              知境机器人正在思考中...
+            </span>
+          ) : (
+            content
+          )}
         </div>
       </div>
-      {isLatest && (
+      {!isLoading && isLatest && (
         <div className="flex gap-[3%]">
           <Button
             className="h-[4vh] w-[20%] rounded-2xl border-0 bg-[#327cc6] p-0"

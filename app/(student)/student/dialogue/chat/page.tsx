@@ -1,7 +1,7 @@
 'use client';
 
 import { NextPage } from 'next';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import ChatFuction from '@/components/chat/chat-function';
 import ChatInput from '@/components/chat/chat-input';
@@ -18,6 +18,7 @@ interface Message {
 
 const Page: NextPage = () => {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [isLoadingMessage, setIsloadingMessage] = useState(true);
   const { clickCount } = useContext(ButtonContext)!;
 
   const mockMessages: Message[] = [
@@ -78,18 +79,29 @@ const Page: NextPage = () => {
     },
   ];
 
-  const updateMessages = useCallback(() => {
-    const matchingMessage: Message = mockMessages.find(
+  const updateMessages = () => {
+    setIsloadingMessage(true);
+    const inputMessage: Message = mockMessages.find(
+      (message) => message.id === clickCount - 1
+    )!;
+    const answerMessage: Message = mockMessages.find(
       (message) => message.id === clickCount
     )!;
     if (clickCount !== 0)
-      setMessages((prevMessages) => [...prevMessages, matchingMessage]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [clickCount]);
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        inputMessage,
+        answerMessage,
+      ]);
+    setTimeout(() => {
+      setIsloadingMessage(false);
+    }, 5000);
+  };
 
   useEffect(() => {
     updateMessages();
-  }, [updateMessages]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clickCount]);
 
   return (
     <main>
@@ -101,6 +113,7 @@ const Page: NextPage = () => {
               key={item.id}
               content={item.content}
               isLatest={index === messages.length - 1}
+              isLoading={isLoadingMessage}
             />
           ) : (
             <UserMessage key={item.id} content={item.content} />

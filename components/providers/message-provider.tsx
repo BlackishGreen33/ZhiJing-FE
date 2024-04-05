@@ -17,7 +17,7 @@ const ButtonProvider: React.FC<ButtonContextProps> = ({ children }) => {
   const [clickCount, setClickCount] = useState(0);
 
   const incrementClickCount = () => {
-    setClickCount((prevCount) => prevCount + 1);
+    setClickCount((prevCount) => prevCount + 2);
   };
 
   return (
