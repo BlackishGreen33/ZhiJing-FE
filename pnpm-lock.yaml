@@ -5,9 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@capacitor-community/http':
+    specifier: ^1.4.1
+    version: 1.4.1
   '@capacitor/android':
     specifier: ^5.7.0
     version: 5.7.0(@capacitor/core@5.7.0)
+  '@capacitor/camera':
+    specifier: ^5.0.9
+    version: 5.0.9(@capacitor/core@5.7.0)
   '@capacitor/cli':
     specifier: ^5.7.0
     version: 5.7.0
@@ -207,10 +213,35 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
+  /@capacitor-community/http@1.4.1:
+    resolution: {integrity: sha512-+pCkBXrwfm97UfjOgjV950H/qZ8SE36Mrcb46BlL1ps3VIsGuIO+AulL8GqTC6LewheRVtGJpRspNtneXQotNA==}
+    dependencies:
+      '@capacitor/android': 3.9.0(@capacitor/core@3.9.0)
+      '@capacitor/core': 3.9.0
+      '@capacitor/filesystem': 1.1.0(@capacitor/core@3.9.0)
+      '@capacitor/ios': 3.9.0(@capacitor/core@3.9.0)
+    dev: false
+
+  /@capacitor/android@3.9.0(@capacitor/core@3.9.0):
+    resolution: {integrity: sha512-YTPyrh1NozEuYXWGtfqN27TLXUrLbZX9fggyd4JQ1yMaUZTmLPm5dCuznONhQ49aPkJnUJB02JfpHy/qGwa2Lw==}
+    peerDependencies:
+      '@capacitor/core': ^3.9.0
+    dependencies:
+      '@capacitor/core': 3.9.0
+    dev: false
+
   /@capacitor/android@5.7.0(@capacitor/core@5.7.0):
     resolution: {integrity: sha512-0bnG1dqfT/nTjzMeHF/a5kF8mqGjHrPLADNqn41seWDfb2ch6AMiKUHsmHpEOWmGIrWOM25qNTrTOytoCSpuXg==}
     peerDependencies:
       '@capacitor/core': ^5.7.0
+    dependencies:
+      '@capacitor/core': 5.7.0
+    dev: false
+
+  /@capacitor/camera@5.0.9(@capacitor/core@5.7.0):
+    resolution: {integrity: sha512-ibuctDzQWVABnJCtIuiFdVYvLbiQNln9gKMZGNN0bZ6oSqoxzDlN7etueJwyFaaRZZlVrXc/sMWuhOkeVJEHcQ==}
+    peerDependencies:
+      '@capacitor/core': ^5.0.0
     dependencies:
       '@capacitor/core': 5.7.0
     dev: false
@@ -241,10 +272,32 @@ packages:
       - supports-color
     dev: false
 
+  /@capacitor/core@3.9.0:
+    resolution: {integrity: sha512-j1lL0+/7stY8YhIq1Lm6xixvUqIn89vtyH5ZpJNNmcZ0kwz6K9eLkcG6fvq1UWMDgSVZg9JrRGSFhb4LLoYOsw==}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
+
   /@capacitor/core@5.7.0:
     resolution: {integrity: sha512-wa9Fao+Axa1t2ZERMyQD9r0xyfglQyC4DHQKintzKaIqcRuVe9J31TmfD3IxROYi9LGpY4X8cq4m4bjb0W94Qg==}
     dependencies:
       tslib: 2.6.2
+    dev: false
+
+  /@capacitor/filesystem@1.1.0(@capacitor/core@3.9.0):
+    resolution: {integrity: sha512-8O3UuvL8HNUEJvZnmn8yUmvgB1evtXfcF0oxIo3YbSlylqywJwS3JTiuhKmsvSxCdpbTy8IaTsutVh3gZgWbKg==}
+    peerDependencies:
+      '@capacitor/core': ^3.0.0
+    dependencies:
+      '@capacitor/core': 3.9.0
+    dev: false
+
+  /@capacitor/ios@3.9.0(@capacitor/core@3.9.0):
+    resolution: {integrity: sha512-GezPCJIujRHnF4wbrKJx6Q/mgFz0f9rmh/steTTXQZI+nEl6mHk6NWh8235p7YbhonYi5WD0rFNirrjGg1EaGw==}
+    peerDependencies:
+      '@capacitor/core': ^3.9.0
+    dependencies:
+      '@capacitor/core': 3.9.0
     dev: false
 
   /@capacitor/preferences@5.0.7(@capacitor/core@5.7.0):

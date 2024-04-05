@@ -1,8 +1,13 @@
+import { Camera } from '@capacitor/camera';
+import { Toast } from '@capacitor/toast';
+import { Http } from '@capacitor-community/http';
 import { FolderPlus, SendHorizonal } from 'lucide-react';
 import { useContext, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+
+import { postData } from '@/lib/fetchData';
 
 import { ButtonContext } from '../providers/message-provider';
 
@@ -14,6 +19,42 @@ const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
   const [inputValue, setInputValue] = useState('');
   const { incrementClickCount } = useContext(ButtonContext)!;
 
+  const showToast = (text: string) => {
+    Toast.show({
+      text,
+      duration: 'short',
+      position: 'top',
+    });
+  };
+
+  const handleUploadFiles = async () => {
+    try {
+      const image = await Camera.pickImages({
+        quality: 90,
+      });
+
+      const res = await Http.downloadFile({
+        url: image.photos[0].webPath,
+        filePath: '',
+      });
+      const blobData = res.blob!;
+      const imageFile = new File(
+        [blobData],
+        `example.${image.photos[0].format}`,
+        { type: blobData.type }
+      );
+
+      const formdata = new FormData();
+      formdata.append('file', imageFile, `example.${image.photos[0].format}`);
+
+      const imageUrl = await postData('/upload_file', formdata);
+      // eslint-disable-next-line no-console
+      console.log(imageUrl[0]);
+    } catch (error) {
+      showToast('上传失败');
+    }
+  };
+
   return (
     <div className="fixed bottom-[8vh] flex h-[8vh] w-full flex-col">
       <div className="h-[0.1vh] w-full bg-gray-700"></div>
@@ -23,6 +64,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
             className="border-0 bg-transparent"
             variant="outline"
             size="icon"
+            onClick={() => handleUploadFiles()}
           >
             <FolderPlus />
           </Button>

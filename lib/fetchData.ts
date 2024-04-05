@@ -1,7 +1,8 @@
 import { CapacitorHttp } from '@capacitor/core';
+// import { Preferences } from '@capacitor/preferences';
 
 const preurl = 'https://zhijing.bigdust.space/api/v1';
-// const token = localStorage.getItem("token");
+// const token = Preferences.get({key: 'token'});
 
 export async function postData(url = '', data = {}) {
   try {
@@ -12,7 +13,7 @@ export async function postData(url = '', data = {}) {
     const response = await CapacitorHttp.post({
       url: preurl + url,
       headers: {
-        'Content-Type': 'application/json;charset=utf-8',
+        'Content-Type': 'multipart/form-data',
         // "Authorization": token,
       },
       data: data,
