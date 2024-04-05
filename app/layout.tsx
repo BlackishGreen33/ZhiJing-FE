@@ -1,7 +1,10 @@
-import { ThemeProvider } from '@/components/providers/theme-provider';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
+
 import './globals.scss';
+
+import { ButtonProvider } from '@/components/providers/message-provider';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 
 const font = Open_Sans({ subsets: ['latin'] });
 
@@ -24,7 +27,7 @@ export default function RootLayout({
           enableSystem={false}
           storageKey="zhijing-theme"
         >
-          {children}
+          <ButtonProvider>{children}</ButtonProvider>
         </ThemeProvider>
       </body>
     </html>

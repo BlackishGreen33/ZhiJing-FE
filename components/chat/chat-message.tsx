@@ -22,7 +22,7 @@ type MessageProps = {
 const messageContainerStyle: React.CSSProperties = {
   wordBreak: 'break-all',
   wordWrap: 'break-word',
-  whiteSpace: 'normal',
+  whiteSpace: 'pre-line',
 };
 
 export const ZJMessage: React.FC<MessageProps> = ({ content, isLatest }) => {

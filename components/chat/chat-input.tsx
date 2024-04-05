@@ -1,13 +1,18 @@
 import { FolderPlus, SendHorizonal } from 'lucide-react';
+import { useContext } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+
+import { ButtonContext } from '../providers/message-provider';
 
 type ChatInputProps = {
   purpose: 'dialogue' | 'solve' | 'answer';
 };
 
 const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
+  const { incrementClickCount } = useContext(ButtonContext)!;
+
   return (
     <div className="fixed bottom-[8vh] flex h-[8vh] w-full flex-col">
       <div className="h-[0.1vh] w-full bg-gray-700"></div>
@@ -31,7 +36,12 @@ const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
           )}
         </div>
         <div className="absolute right-[5%]">
-          <Button className="border-0" variant="default" size="icon">
+          <Button
+            className="border-0"
+            variant="default"
+            size="icon"
+            onClick={incrementClickCount}
+          >
             <SendHorizonal />
           </Button>
         </div>
