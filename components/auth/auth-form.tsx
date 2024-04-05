@@ -2,10 +2,10 @@
 
 import { Preferences } from '@capacitor/preferences';
 import { Toast } from '@capacitor/toast';
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
+import { Eye, EyeOff, Mail, User } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-
-import { Eye, EyeOff, Mail, User } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -22,7 +22,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
 
 import { authGet, authPost } from '@/lib/fetchData';
 import { cn } from '@/lib/utils';
@@ -120,6 +119,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ className, isLogin }) => {
     try {
       await authGet('/auth/email_code', email);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
   };

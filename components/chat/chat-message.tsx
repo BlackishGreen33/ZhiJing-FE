@@ -1,3 +1,5 @@
+import { Share, ThumbsDown, ThumbsUp } from 'lucide-react';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,7 +13,6 @@ import {
 } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Share, ThumbsDown, ThumbsUp } from 'lucide-react';
 
 type MessageProps = {
   content: string;

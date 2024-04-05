@@ -1,8 +1,7 @@
 'use client';
 
-import { MutableRefObject, useEffect, useRef } from 'react';
-
 import * as Echarts from 'echarts';
+import { MutableRefObject, useEffect, useRef } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -30,6 +29,7 @@ const PieChart: React.FC<PieChartProps> = ({
   className,
   data,
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const chartpie: MutableRefObject<any> = useRef(null);
 
   const pieOption: EChartsOption = {

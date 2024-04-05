@@ -11,12 +11,11 @@ const useTokenCheck = () => {
     const tokenChecked = async () => {
       const { value } = await Preferences.get({ key: 'token' });
       const isToken = !!value;
-      console.log(value);
       if (!isToken) router.push('/login');
     };
 
     tokenChecked();
-  }, []);
+  }, [router]);
 };
 
 export default useTokenCheck;

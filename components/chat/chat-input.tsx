@@ -1,6 +1,7 @@
+import { FolderPlus, SendHorizonal } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { FolderPlus, SendHorizonal } from 'lucide-react';
 
 type ChatInputProps = {
   purpose: 'dialogue' | 'solve' | 'answer';

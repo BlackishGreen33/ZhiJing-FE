@@ -1,10 +1,9 @@
 'use client';
 
-import Link from 'next/link';
-import { useState } from 'react';
-
 import { motion } from 'framer-motion';
 import { ClipboardPen, Lightbulb, MessageCircleMore } from 'lucide-react';
+import Link from 'next/link';
+import { useState } from 'react';
 
 import { scaleAnimation } from '@/animations/whileTapAnimations';
 

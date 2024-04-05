@@ -3,11 +3,11 @@
 import { NextPage } from 'next';
 import { useSearchParams } from 'next/navigation';
 
-import { cn } from '@/lib/utils';
-
 import Navbar from '@/components/elements/navbar';
 import SubpageHeader from '@/components/elements/subpage-header';
 import { QuestionProvider } from '@/components/providers/question-provider';
+
+import { cn } from '@/lib/utils';
 
 const Page: NextPage = () => {
   const questions = [

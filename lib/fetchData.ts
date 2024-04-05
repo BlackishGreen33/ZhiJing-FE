@@ -20,6 +20,7 @@ export async function postData(url = '', data = {}) {
 
     return response.data.data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
   }
 }
@@ -79,6 +80,7 @@ export async function authPost(url = '', data = {}) {
 
     return response.data.data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
   }
 }
@@ -97,6 +99,7 @@ export async function authGet(url = '', email: string) {
 
     return response.data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
   }
 }

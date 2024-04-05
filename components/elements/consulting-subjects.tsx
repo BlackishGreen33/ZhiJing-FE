@@ -1,6 +1,5 @@
-import Link from 'next/link';
-
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 type ConsultingSubjectsProps = {
   purpose: 'student' | 'teacher';
