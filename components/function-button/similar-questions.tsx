@@ -19,7 +19,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 const messageContainerStyle: React.CSSProperties = {
   wordBreak: 'break-all',
   wordWrap: 'break-word',
-  whiteSpace: 'normal',
+  whiteSpace: 'pre-line',
 };
 
 const SimilarQuestions = () => {
@@ -29,17 +29,22 @@ const SimilarQuestions = () => {
   const [isDetail, setIsDetail] = useState(false);
 
   const question = {
-    title:
-      '一个桶中有红球、白球共30只，这些球除颜色外都相同。小陈将桶中的球搅拌均匀，从中随机摸出一只球，记下它的颜色后再放回，不断重复这一过程。小陈共摸了60次，发现有20次是红球，问这个桶中约有红球多少只？',
+    title: '8y + 4x -5 = 0 的零点在哪里？',
     options: [
-      { id: 1, content: '8' },
-      { id: 2, content: '10' },
-      { id: 3, content: '12' },
-      { id: 4, content: '20' },
+      { id: 1, content: '3/2' },
+      { id: 2, content: '7/12' },
+      { id: 3, content: '5/4' },
+      { id: 4, content: '1' },
     ],
     answer: '10',
     detail:
-      '概率问题。根据题意小陈有放回的摸球，共摸了60次球，有20次是红球，则60次中摸到20次红球的概率为20/60=1/3。由于是有放回的摸球，所以单次摸到红球的概率与60次摸到20次红球的概率与相同。根据公式：古典概率=所求等可能样本数/总的等可能样本数，则1/3=红球数/总球数=红球数/30，解得红球数=10，则桶中约有红球10只。因此，答案为10。',
+      `要找到方程 \(8y + 4x - 5 = 0\) 的零点，您需要解方程以找到 \(x\) 和 \(y\) 的值，使得方程成立。
+
+      首先，我们可以将方程重写为 \(y = -\frac{4}{8}x + \frac{5}{8}\)，这样我们就得到了直线的斜率截距形式。斜率截距形式是 \(y = mx + b\)，其中 \(m\) 是斜率，\(b\) 是截距。
+
+      在这个方程中，斜率 \(m = -\frac{4}{8} = -\frac{1}{2}\)，截距 \(b = \frac{5}{8}\)。
+
+      因此，直线的斜率为负斜率，截距在 \(y\) 轴上的正值。我们可以画出这条直线，并找到它与 \(x\) 轴的交点，即零点。`,
   };
 
   const handleClick = () => {
