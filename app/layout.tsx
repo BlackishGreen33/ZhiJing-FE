@@ -27,7 +27,9 @@ export default function RootLayout({
           enableSystem={false}
           storageKey="zhijing-theme"
         >
-          <ButtonProvider>{children}</ButtonProvider>
+          <ButtonProvider>
+            {children}
+          </ButtonProvider>
         </ThemeProvider>
       </body>
     </html>

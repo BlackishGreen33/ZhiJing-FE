@@ -4,20 +4,26 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 
 import Container from '@/components/elements/container';
+import Header from '@/components/elements/main-header';
+import Navbar from '@/components/elements/navbar';
 
 const Custom404: NextPage = () => {
   return (
-    <Container
-      className="flex h-full flex-col items-center justify-center space-y-5"
-      data-aos="fade-up"
-    >
-      <StyledHeading title="404" className="font-sora text-7xl font-bold">
-        404
-      </StyledHeading>
-      <h2 className="animate-pulse text-center text-xl lg:text-xl">
-        哎呀，这里好像什么都没有啊！
-      </h2>
-    </Container>
+    <>
+      <Header />
+      <Container
+        className="absolute flex h-full w-full flex-col items-center justify-center space-y-5"
+        data-aos="fade-up"
+      >
+        <StyledHeading title="404" className="font-sora text-7xl font-bold">
+          404
+        </StyledHeading>
+        <h2 className="animate-pulse text-center text-xl lg:text-xl">
+          哎呀，这里好像什么都没有啊！
+        </h2>
+      </Container>
+      <Navbar activeID={0} role="student" />
+    </>
   );
 };
 
