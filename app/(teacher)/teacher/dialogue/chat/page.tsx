@@ -1,3 +1,5 @@
+'use client';
+
 import { NextPage } from 'next';
 
 import ChatFuction from '@/components/chat/chat-function';
@@ -10,27 +12,26 @@ const Page: NextPage = () => {
   const messages = [
     {
       id: 1,
-      content: '123',
+      content: 'test',
       role: '你',
     },
     {
       id: 2,
-      content:
-        '我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你',
+      content: '您好，我能帮您什么吗？',
       role: 'ZJ',
     },
-    {
-      id: 3,
-      content:
-        '我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你',
-      role: '你',
-    },
-    {
-      id: 4,
-      content:
-        '啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-      role: 'ZJ',
-    },
+    // {
+    //   id: 3,
+    //   content:
+    //     '我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你我好爱你',
+    //   role: '你',
+    // },
+    // {
+    //   id: 4,
+    //   content:
+    //     '啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
+    //   role: 'ZJ',
+    // },
   ];
 
   return (
