@@ -42,6 +42,7 @@ const Page: NextPage = () => {
             <ZJMessage
               key={item.id}
               content={item.content}
+              role={item.role}
               isLatest={index === messages.length - 1}
             />
           ) : (

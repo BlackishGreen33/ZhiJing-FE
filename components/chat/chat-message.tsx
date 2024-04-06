@@ -1,5 +1,6 @@
 import { Share, ThumbsDown, ThumbsUp } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -18,6 +19,7 @@ import { Textarea } from '@/components/ui/textarea';
 type MessageProps = {
   content: string;
   imageUrl?: string;
+  role?: 'ZJ' | '老师';
   isLatest?: boolean;
   isLoading?: boolean;
 };
@@ -31,6 +33,7 @@ const messageContainerStyle: React.CSSProperties = {
 export const ZJMessage: React.FC<MessageProps> = ({
   content,
   imageUrl,
+  role,
   isLatest,
   isLoading,
 }) => {
@@ -38,14 +41,14 @@ export const ZJMessage: React.FC<MessageProps> = ({
     <div className="flex w-full flex-col gap-[1vh]">
       <div className="flex gap-[3%]">
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="知境" />
-          <AvatarFallback>ZJ</AvatarFallback>
+          <AvatarImage src="https://github.com/shadcn.png" alt={role} />
+          <AvatarFallback>{role}</AvatarFallback>
         </Avatar>
         <div
           className="h-auto max-w-full rounded-lg bg-gray-800 p-3"
           style={messageContainerStyle}
         >
-          {isLoading && isLatest ? (
+          {isLoading && isLatest && role === 'ZJ' ? (
             <span>
               <Image
                 src="/generate.png"
@@ -82,13 +85,15 @@ export const ZJMessage: React.FC<MessageProps> = ({
             <Share className="h-[2vh]" />
             <p>分享</p>
           </Button>
-          <Button
-            className="h-[4vh] w-[4vh] rounded-full p-0"
-            variant="outline"
-            size="icon"
-          >
-            <ThumbsUp className="h-[2vh]" />
-          </Button>
+          <Link href="/">
+            <Button
+              className="h-[4vh] w-[4vh] rounded-full p-0"
+              variant="outline"
+              size="icon"
+            >
+              <ThumbsUp className="h-[2vh]" />
+            </Button>
+          </Link>
           <Dialog>
             <DialogTrigger asChild>
               <Button

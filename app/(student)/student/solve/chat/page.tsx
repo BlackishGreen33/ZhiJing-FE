@@ -64,7 +64,7 @@ const Page: NextPage = () => {
         <div className="flex w-full flex-col gap-[2vh] px-[5%]">
           {messages.map((item) =>
             item.role === '老师' ? (
-              <ZJMessage key={item.id} content={item.content} />
+              <ZJMessage key={item.id} content={item.content} role={item.role}/>
             ) : (
               <UserMessage key={item.id} content={item.content} />
             )

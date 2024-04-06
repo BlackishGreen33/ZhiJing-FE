@@ -119,6 +119,7 @@ const Page: NextPage = () => {
               key={item.id}
               content={item.content}
               imageUrl={item.imageUrl}
+              role={item.role}
               isLatest={index === messages.length - 1}
               isLoading={isLoadingMessage}
             />
