@@ -17,7 +17,7 @@ import { Textarea } from '@/components/ui/textarea';
 const PlanGeneration = () => {
   const [isClick, setIsClick] = useState(false);
 
-  const mockPlan = `教案标题：介绍二次函数
+  const mockPlan = `  教案标题：介绍二次函数
   课程类型：讲授型
   学生年级：7年级
   教学目标：
