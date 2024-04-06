@@ -1,3 +1,4 @@
+import { Clipboard } from '@capacitor/clipboard';
 import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -95,6 +96,12 @@ const PlanGeneration = () => {
   - 提供额外的练习题和挑战题，以拓展学生的知识和能力。
   `;
 
+  const handleCopyPlan = async () => {
+    await Clipboard.write({
+      string: mockPlan,
+    });
+  };
+
   return (
     <div className="flex h-[4.5vh] w-full items-center">
       <Dialog>
@@ -114,7 +121,9 @@ const PlanGeneration = () => {
           </DialogHeader>
           <div className="grid gap-4 py-4">
             {isClick ? (
-              <Textarea className="h-[50vh]" readOnly>{mockPlan}</Textarea>
+              <Textarea className="h-[50vh]" readOnly>
+                {mockPlan}
+              </Textarea>
             ) : (
               <>
                 <div className="grid grid-cols-4 items-center gap-4">
@@ -151,7 +160,9 @@ const PlanGeneration = () => {
             )}
           </div>
           <DialogFooter>
-            {!isClick && (
+            {isClick ? (
+              <Button onClick={handleCopyPlan}>复制到剪贴板</Button>
+            ) : (
               <Button type="submit" onClick={() => setIsClick(!isClick)}>
                 生成教案
               </Button>
