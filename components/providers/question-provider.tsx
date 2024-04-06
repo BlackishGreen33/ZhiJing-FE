@@ -19,7 +19,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 const messageContainerStyle: React.CSSProperties = {
   wordBreak: 'break-all',
   wordWrap: 'break-word',
-  whiteSpace: 'normal',
+  whiteSpace: 'pre-line',
 };
 
 type QuestionProviderProps = {
@@ -39,16 +39,30 @@ export function QuestionProvider({
   const [isDetail, setIsDetail] = useState(false);
 
   const question = {
-    title:
-      '小张在一瞎手机电脑维修店铺上班，维修物品所收取的费用根据物品的种类物品的损坏原因、物品的损坏程度、需要的零件等多方面决定。小张在2022年年初统计了2021年全年当中A款笔记本电脑由于卡顿加装同一种固态硬盘所收取的金额，统计后发现，共有25个A款笔记本电脑进行了该项维修，并且每个笔记本的维修费用相同，最后总收入是一个四位数，且各位数之和是18的倍数，若所有金额均为整数，那么小张这项收入的钱数可能有多少种情况？',
+    title: `考虑函数 f(x) = 2x^2 - 5x + 2。
+
+      下列哪个选项表示了函数 f(x) 的零点？`,
     options: [
-      { id: 1, content: '20' },
-      { id: 2, content: '21' },
-      { id: 3, content: '24' },
-      { id: 4, content: '26' },
+      { id: 1, content: 'x = 2 和 x = 1/2' },
+      { id: 2, content: 'x = -2 和 x = 1/2' },
+      { id: 3, content: 'x = 2 和 x = -1/2' },
+      { id: 4, content: 'x = -2 和 x = -1/2' },
     ],
-    answer: '21',
-    detail: '没有',
+    answer: 'x = 2 和 x = 1/2',
+    detail: `函数 f(x) = 2x^2 - 5x + 2 的零点是使得 f(x) = 0 的值。我们可以使用求根公式或者其他方法来找到零点。
+
+    首先，我们可以尝试使用因式分解来分解这个二次方程。观察到该函数可以写成 f(x) = (2x - 1)(x - 2)，因此 f(x) = 0 的解为 x = 1/2 和 x = 2。
+
+    另一种方法是使用二次方程的求根公式：
+    x = frac{-b +- sqrt{b^2 - 4ac}}{2a}
+
+    对于 f(x) = 2x^2 - 5x + 2，其中 a = 2，b = -5，c = 2。将这些值代入求根公式，我们得到：
+    x = frac{-(-5) +- sqrt{(-5)^2 - 4 cdot 2 cdot 2}}{2 cdot 2}
+    x = frac{5 +- sqrt{25 - 16}}{4}
+    x = frac{5 +- sqrt{9}}{4}
+    x = frac{5 +- 3}{4}
+
+    因此，我们得到 x = frac{5 + 3}{4} = 2 和 x = frac{5 - 3}{4} = frac{1}{2}。`,
   };
 
   const handleClick = () => {
@@ -107,7 +121,7 @@ export function QuestionProvider({
             <>
               <Label htmlFor="message-2">详解</Label>
               <div
-                className="h-auto max-w-full rounded-lg bg-neutral-900 p-3"
+                className="h-auto max-h-[40vh] max-w-full rounded-lg bg-neutral-900 p-3 overflow-scroll"
                 style={messageContainerStyle}
               >
                 {question.detail}
