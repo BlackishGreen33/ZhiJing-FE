@@ -3,6 +3,7 @@ import { Open_Sans } from 'next/font/google';
 
 import './globals.scss';
 
+import { ImageProvider } from '@/components/providers/image-provider';
 import { ButtonProvider } from '@/components/providers/message-provider';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 
@@ -28,7 +29,7 @@ export default function RootLayout({
           storageKey="zhijing-theme"
         >
           <ButtonProvider>
-            {children}
+            <ImageProvider>{children}</ImageProvider>
           </ButtonProvider>
         </ThemeProvider>
       </body>

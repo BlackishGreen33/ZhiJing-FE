@@ -2,13 +2,26 @@ import { Camera } from '@capacitor/camera';
 import { Toast } from '@capacitor/toast';
 import { Http } from '@capacitor-community/http';
 import { FolderPlus, SendHorizonal } from 'lucide-react';
+import Image from 'next/image';
 import { useContext, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogPrimitive,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 import { postData } from '@/lib/fetchData';
 
+import { ImageContext } from '../providers/image-provider';
 import { ButtonContext } from '../providers/message-provider';
 
 type ChatInputProps = {
@@ -18,6 +31,7 @@ type ChatInputProps = {
 const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
   const [inputValue, setInputValue] = useState('');
   const { incrementClickCount } = useContext(ButtonContext)!;
+  const { imageUrl, setImageUrl } = useContext(ImageContext)!;
 
   const showToast = (text: string) => {
     Toast.show({
@@ -48,8 +62,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
       formdata.append('file', imageFile, `example.${image.photos[0].format}`);
 
       const imageUrl = await postData('/upload_file', formdata);
-      // eslint-disable-next-line no-console
-      console.log(imageUrl[0]);
+      setImageUrl(imageUrl[0]);
     } catch (error) {
       showToast('上传失败');
     }
@@ -60,14 +73,64 @@ const ChatInput: React.FC<ChatInputProps> = ({ purpose }) => {
       <div className="h-[0.1vh] w-full bg-gray-700"></div>
       <div className="flex h-[7.9vh] w-full items-center">
         <div className="absolute left-[5%]">
-          <Button
-            className="border-0 bg-transparent"
-            variant="outline"
-            size="icon"
-            onClick={() => handleUploadFiles()}
-          >
-            <FolderPlus />
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                className="border-0 bg-transparent"
+                variant="outline"
+                size="icon"
+              >
+                <FolderPlus />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>上传文件</DialogTitle>
+                <DialogDescription>请填写以下信息</DialogDescription>
+              </DialogHeader>
+              <div className="grid gap-4 py-4">
+                <div className="flex w-full justify-center">
+                  {imageUrl ? (
+                    <Image
+                      src={`https:\\${imageUrl}`}
+                      width={50}
+                      height={50}
+                      alt="uploadedImage"
+                      className="w-[30%]"
+                    />
+                  ) : (
+                    <Button type="submit" onClick={handleUploadFiles}>
+                      添加档案
+                    </Button>
+                  )}
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="text" className="text-right">
+                    对话内容
+                  </Label>
+                  <Input
+                    id="text"
+                    placeholder="请输入对话内容"
+                    className="col-span-3"
+                  />
+                </div>
+              </div>
+              <DialogFooter>
+                <DialogPrimitive.Close>
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    onClick={() => {
+                      incrementClickCount();
+                      setInputValue('');
+                    }}
+                  >
+                    送出信息
+                  </Button>
+                </DialogPrimitive.Close>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </div>
         <div className="absolute left-[18%] w-[63%]">
           {purpose === 'dialogue' ? (

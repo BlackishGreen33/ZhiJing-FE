@@ -8,11 +8,13 @@ import ChatInput from '@/components/chat/chat-input';
 import { UserMessage, ZJMessage } from '@/components/chat/chat-message';
 import Navbar from '@/components/elements/navbar';
 import SubpageHeader from '@/components/elements/subpage-header';
+import { ImageContext } from '@/components/providers/image-provider';
 import { ButtonContext } from '@/components/providers/message-provider';
 
 interface Message {
   id: number;
   content: string;
+  imageUrl?: string;
   role: '你' | 'ZJ';
 }
 
@@ -20,6 +22,7 @@ const Page: NextPage = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoadingMessage, setIsloadingMessage] = useState(true);
   const { clickCount } = useContext(ButtonContext)!;
+  const { imageUrl } = useContext(ImageContext)!;
 
   const mockMessages: Message[] = [
     {
@@ -36,6 +39,7 @@ const Page: NextPage = () => {
     {
       id: 3,
       content: '如图，这是一种什么函数',
+      imageUrl: imageUrl,
       role: '你',
     },
     {
@@ -60,7 +64,9 @@ const Page: NextPage = () => {
     },
     {
       id: 6,
-      content: `（画图）`,
+      content: `如图所示`,
+      imageUrl:
+        'lablab.muxixyz.com/(2024-04-06 16:35:13.331716017 +0800 CST m=+70540.751566126)螢幕擷取畫面 2024-04-06 163337.png',
       role: 'ZJ',
     },
     {
@@ -112,11 +118,16 @@ const Page: NextPage = () => {
             <ZJMessage
               key={item.id}
               content={item.content}
+              imageUrl={item.imageUrl}
               isLatest={index === messages.length - 1}
               isLoading={isLoadingMessage}
             />
           ) : (
-            <UserMessage key={item.id} content={item.content} />
+            <UserMessage
+              key={item.id}
+              content={item.content}
+              imageUrl={item.imageUrl}
+            />
           )
         )}
       </div>

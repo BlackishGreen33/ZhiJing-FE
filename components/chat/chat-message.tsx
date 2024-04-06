@@ -17,6 +17,7 @@ import { Textarea } from '@/components/ui/textarea';
 
 type MessageProps = {
   content: string;
+  imageUrl?: string;
   isLatest?: boolean;
   isLoading?: boolean;
 };
@@ -29,6 +30,7 @@ const messageContainerStyle: React.CSSProperties = {
 
 export const ZJMessage: React.FC<MessageProps> = ({
   content,
+  imageUrl,
   isLatest,
   isLoading,
 }) => {
@@ -53,6 +55,17 @@ export const ZJMessage: React.FC<MessageProps> = ({
                 className="animate-spin"
               />
               知境机器人正在思考中...
+            </span>
+          ) : imageUrl ? (
+            <span>
+              <Image
+                src={`https:\\${imageUrl}`}
+                width={50}
+                height={50}
+                alt="drawedImage"
+                className="w-full"
+              />
+              {content}
             </span>
           ) : (
             content
@@ -114,7 +127,7 @@ export const ZJMessage: React.FC<MessageProps> = ({
   );
 };
 
-export const UserMessage: React.FC<MessageProps> = ({ content }) => {
+export const UserMessage: React.FC<MessageProps> = ({ content, imageUrl }) => {
   return (
     <div className="flex w-full flex-col gap-[1vh]">
       <div className="flex gap-[3%]">
@@ -122,7 +135,20 @@ export const UserMessage: React.FC<MessageProps> = ({ content }) => {
           className="ml-auto h-auto max-w-full rounded-lg bg-gray-800 p-3"
           style={messageContainerStyle}
         >
-          {content}
+          {imageUrl ? (
+            <span>
+              <Image
+                src={`https:\\${imageUrl}`}
+                width={50}
+                height={50}
+                alt="uploadedImage"
+                className="w-[30%]"
+              />
+              {content}
+            </span>
+          ) : (
+            content
+          )}
         </div>
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" alt="知境" />
