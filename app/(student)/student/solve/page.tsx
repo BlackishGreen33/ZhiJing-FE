@@ -1,14 +1,20 @@
+'use client';
+
 import { NextPage } from 'next';
 import Link from 'next/link';
+import { useContext } from 'react';
 
 import Header from '@/components/elements/main-header';
 import Navbar from '@/components/elements/navbar';
+import { UnderstandContext } from '@/components/providers/understand-provider';
 
 import { cn } from '@/lib/utils';
 
 const Page: NextPage = () => {
+  const { isUnderstand } = useContext(UnderstandContext)!;
+
   const questions = [
-    { id: 1, type: '数学', title: '微分方程', isSolve: false },
+    { id: 1, type: '数学', title: '零点判断', isSolve: isUnderstand },
     { id: 2, type: '数学', title: '常态分布', isSolve: false },
     { id: 3, type: '物理', title: '什么是电磁场？', isSolve: true },
   ];

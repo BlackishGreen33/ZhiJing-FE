@@ -6,6 +6,7 @@ import './globals.scss';
 import { ImageProvider } from '@/components/providers/image-provider';
 import { ButtonProvider } from '@/components/providers/message-provider';
 import { ThemeProvider } from '@/components/providers/theme-provider';
+import { UnderstandProvider } from '@/components/providers/understand-provider';
 
 const font = Open_Sans({ subsets: ['latin'] });
 
@@ -29,7 +30,9 @@ export default function RootLayout({
           storageKey="zhijing-theme"
         >
           <ButtonProvider>
-            <ImageProvider>{children}</ImageProvider>
+            <ImageProvider>
+              <UnderstandProvider>{children}</UnderstandProvider>
+            </ImageProvider>
           </ButtonProvider>
         </ThemeProvider>
       </body>

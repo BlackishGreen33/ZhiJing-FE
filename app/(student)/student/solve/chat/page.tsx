@@ -20,32 +20,34 @@ const Page: NextPage = () => {
 
   const title = searchParams.get('title') || '';
 
-  const question =
-    '因为这样这样，所以那样那样，又因为这样这样，所以那样那样。请问如果这样这样的话，会那样那样吗？';
+  const question = '我还是不太懂，应该如何判断一个函数有没有零点呢？';
 
   const messages = [
     {
       id: 1,
-      content:
-        '其实是这样的，这样那样的话就会那样那样，所以根据 ggbond 定理，就能推导出这样的结论。',
+      content: `一个函数是否有零点可以通过解它的方程来确定。一个函数的零点是使得函数等于零的输入值。如果你有一个函数 f(x)，那么它的零点就是解方程 f(x) = 0 所得到的 x 值。
+
+      一般来说，如果你有一个函数的解析表达式，你可以通过求解 f(x) = 0 来找到函数的零点。但有时候函数可能没有解析表达式，这时你可能需要使用数值方法（如牛顿法、二分法等）来估计函数的零点。
+
+      因此，要判断一个函数是否有零点，你需要尝试解它的方程 f(x) = 0。`,
       role: '老师',
     },
-    {
-      id: 2,
-      content: '那老师，如果这样这样那样那样的话，还能得到类似的结果吗？',
-      role: '你',
-    },
-    {
-      id: 3,
-      content: '还有在那样那样的情况也能使用 ggbond 定理吗？',
-      role: '你',
-    },
-    {
-      id: 4,
-      content:
-        '是的，在这样这样的情况下，ggbond 定理也能得到类似的结果。汝子可教也！',
-      role: '老师',
-    },
+    // {
+    //   id: 2,
+    //   content: '那老师，如果这样这样那样那样的话，还能得到类似的结果吗？',
+    //   role: '你',
+    // },
+    // {
+    //   id: 3,
+    //   content: '还有在那样那样的情况也能使用 ggbond 定理吗？',
+    //   role: '你',
+    // },
+    // {
+    //   id: 4,
+    //   content:
+    //     '是的，在这样这样的情况下，ggbond 定理也能得到类似的结果。汝子可教也！',
+    //   role: '老师',
+    // },
   ];
 
   return (
@@ -64,7 +66,11 @@ const Page: NextPage = () => {
         <div className="flex w-full flex-col gap-[2vh] px-[5%]">
           {messages.map((item) =>
             item.role === '老师' ? (
-              <ZJMessage key={item.id} content={item.content} role={item.role}/>
+              <ZJMessage
+                key={item.id}
+                content={item.content}
+                role={item.role}
+              />
             ) : (
               <UserMessage key={item.id} content={item.content} />
             )

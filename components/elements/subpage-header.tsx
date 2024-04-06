@@ -1,5 +1,7 @@
 import { ChevronLeft, KeyRound, UserRound } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useContext } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -14,6 +16,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
+import { UnderstandContext } from '../providers/understand-provider';
+
 type SubpageHeaderProps = {
   backUrl: string;
   title: string;
@@ -25,6 +29,9 @@ const SubpageHeader: React.FC<SubpageHeaderProps> = ({
   title,
   purpose,
 }) => {
+  const router = useRouter();
+  const { setIsUnderstand } = useContext(UnderstandContext)!;
+
   return (
     <header className="fixed flex h-[10vh] w-full items-center justify-center">
       <Link href={backUrl} className="absolute left-[5%] top-[3.5vh]">
@@ -82,7 +89,13 @@ const SubpageHeader: React.FC<SubpageHeaderProps> = ({
           </Dialog>
         )}
         {purpose === 'solve' && (
-          <div className="flex flex-col items-center justify-center">
+          <div
+            className="flex flex-col items-center justify-center"
+            onClick={() => {
+              setIsUnderstand(true);
+              router.push('/student/solve');
+            }}
+          >
             <KeyRound />
             <p className="text-xs ">我理解了</p>
           </div>
