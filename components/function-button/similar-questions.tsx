@@ -36,7 +36,7 @@ const SimilarQuestions = () => {
       { id: 3, content: '5/4' },
       { id: 4, content: '1' },
     ],
-    answer: '10',
+    answer: '5/4',
     detail:
       `要找到方程 8y + 4x - 5 = 0 的零点，您需要解方程以找到 x和 y 的值，使得方程成立。
 

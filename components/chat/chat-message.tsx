@@ -147,7 +147,7 @@ export const UserMessage: React.FC<MessageProps> = ({ content, imageUrl }) => {
                 width={50}
                 height={50}
                 alt="uploadedImage"
-                className="w-[30%]"
+                className="w-full"
               />
               {content}
             </span>
