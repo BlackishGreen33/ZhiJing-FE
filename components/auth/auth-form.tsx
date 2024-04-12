@@ -37,7 +37,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ className, isLogin }) => {
   const [password, setPassword] = useState('');
   const [code, setCode] = useState('');
   const [username, setUsername] = useState('');
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState(0);
 
   const router = useRouter();
 
@@ -239,7 +239,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ className, isLogin }) => {
               <div className="flex h-[5.3vh] items-center justify-center gap-1 rounded bg-gray-800">
                 <Select
                   onValueChange={(e) => {
-                    setRole(e);
+                    setRole(parseInt(e));
                   }}
                 >
                   <SelectTrigger className="h-[5.3vh] w-full bg-transparent">
