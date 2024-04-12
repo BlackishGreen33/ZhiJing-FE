@@ -41,7 +41,10 @@ export const ZJMessage: React.FC<MessageProps> = ({
     <div className="flex w-full flex-col gap-[1vh]">
       <div className="flex gap-[3%]">
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt={role} />
+          <AvatarImage
+            src="https://yt3.ggpht.com/ytc/AMLnZu8jmNQ5e15ohYY3U-6jHIPulXm9pvqBUwcq6QrEXQ=s900-c-k-c0x00ffffff-no-rj"
+            alt={role}
+          />
           <AvatarFallback>{role}</AvatarFallback>
         </Avatar>
         <div
@@ -60,16 +63,18 @@ export const ZJMessage: React.FC<MessageProps> = ({
               知境机器人正在思考中...
             </span>
           ) : imageUrl ? (
-            <span>
-              <Image
-                src={`https:\\${imageUrl}`}
-                width={50}
-                height={50}
-                alt="drawedImage"
-                className="w-full"
-              />
+            <>
+              <div className="h-[20vh] w-full overflow-scroll">
+                <Image
+                  src={`https:\\${imageUrl}`}
+                  width={50}
+                  height={50}
+                  alt="drawedImage"
+                  className="h-[30vh] w-[70vw]"
+                />
+              </div>
               {content}
-            </span>
+            </>
           ) : (
             content
           )}
@@ -156,7 +161,7 @@ export const UserMessage: React.FC<MessageProps> = ({ content, imageUrl }) => {
           )}
         </div>
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="知境" />
+          <AvatarImage src="https://github.com/konodioda727.png" alt="知境" />
           <AvatarFallback>你</AvatarFallback>
         </Avatar>
       </div>
